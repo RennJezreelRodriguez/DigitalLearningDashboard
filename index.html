@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard sa Pagsusuri ng Tagalog at Waray</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header-title">Dashboard sa Pagsusuri ng Wika (Tagalog kumpara sa Waray)</div>
+      <div class="header-subtitle">Pagsusuri ng Corpus, Data Insights, Linguistic Anomalies, at NLP Preprocessing</div>
+    </header>
+
+    <main class="main-layout">
+      <!-- Left Panel: Controls / Sidebar -->
+      <section class="panel sidebar-panel">
+        <h3 class="panel-heading">Mga Kontrol</h3>
+        
+        <div class="control-group">
+          <label for="corpus-select">Pumili ng Corpus</label>
+          <select id="corpus-select">
+            <option value="Tagalog">Tagalog (tgl_wikipedia_2021)</option>
+            <option value="Waray">Waray (war_wikipedia_2021)</option>
+          </select>
+        </div>
+
+        <!-- Mode Selection Tabs (Replaced Dropdown) -->
+        <div class="control-group">
+          <label>Modo ng Pagsusuri</label>
+          <div class="tabs-group">
+            <button class="tab-btn active" data-mode="cloud">1. Data Insight</button>
+            <button class="tab-btn" data-mode="anomaly">2. Linguistic Anomaly</button>
+            <button class="tab-btn" data-mode="nlp">3. NLP Application</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Input Container: Only appears for Mode 2 -->
+        <div class="control-group" id="search-container" style="display: none;">
+          <label for="target-word-input">Paghahanap ng Salita (Homograph)</label>
+          <input type="text" id="target-word-input" value="basa" placeholder="i-type ang salita...">
+        </div>
+
+        <div class="help-text" id="status-text">
+          Nilo-load ang mga CSV files mula sa Data folder...
+        </div>
+      </section>
+
+      <!-- Right Column: Split into Top and Bottom Panels -->
+      <div class="right-column">
+        <!-- Top-Right Panel -->
+        <section class="panel top-panel">
+          <div class="panel-heading" id="freq-heading">Dalas ng Salita (Word Frequency & Data Insight)</div>
+          <div class="subtext" id="top-subtext">Pagsusuri sa estruktura at dalas ng mga marker.</div>
+          <div class="word-cloud-container" id="word-cloud"></div>
+        </section>
+
+        <!-- Bottom-Right Panel -->
+        <section class="panel bottom-panel">
+          <div class="panel-heading" id="colloc-heading">Resulta ng Pagsusuri at Konteksto</div>
+          <div class="subtext" id="colloc-subtext">Paghahambing ng kahulugan at paglilinis ng ingay</div>
+          <div id="colloc-list"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
