@@ -40,7 +40,7 @@ async function loadCSV(filename) {
 
 async function loadDictionary() {
   try {
-    const response = await fetch("dictionary.json");
+    const response = await fetch("./dictionary.json");
     dictionaryData = await response.json();
   } catch (err) {
     console.error("Hindi ma-load ang dictionary.json", err);
@@ -51,8 +51,8 @@ async function init() {
   document.getElementById("status-text").textContent = "Nilo-load ang mga CSV datasets at diksyunaryo...";
   
   const [tgl, war] = await Promise.all([
-    loadCSV("Data/wordlist_tgl_wikipedia_2021_20260904060133.csv"),
-    loadCSV("Data/wordlist_war_wikipedia_2021_20260904060844.csv"),
+    loadCSV("./Data/wordlist_tgl_wikipedia_2021_20260904060133.csv"),
+    loadCSV("./Data/wordlist_war_wikipedia_2021_20260904060844.csv"),
     loadDictionary()
   ]);
 
