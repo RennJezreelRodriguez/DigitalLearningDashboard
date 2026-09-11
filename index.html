@@ -16,6 +16,26 @@
       <div class="header-subtitle">Pagsusuri ng Corpus, Data Insights, Linguistic Anomalies, at NLP Preprocessing</div>
     </header>
 
+    <!-- Language Info Card: always visible, updates whenever the corpus/language changes -->
+    <div class="lang-panel-wrap">
+      <section class="panel language-panel" id="language-panel">
+        <div class="panel-heading" style="margin-bottom: 16px;">Detalye ng Wika</div>
+        <div class="lang-panel-inner">
+          <div class="lang-fields">
+            <div class="lang-heading" id="lang-heading"></div>
+            <div class="lang-field"><span class="lang-label">Sangay</span><span class="lang-value" id="lang-branch"></span></div>
+            <div class="lang-field"><span class="lang-label">Sub-grupo</span><span class="lang-value" id="lang-subgroup"></span></div>
+            <div class="lang-field"><span class="lang-label">Rehiyon</span><span class="lang-value" id="lang-region"></span></div>
+            <div class="lang-field"><span class="lang-label">Populasyon</span><span class="lang-value" id="lang-population"></span></div>
+          </div>
+          <div class="lang-callout">
+            <div class="callout-number" id="lang-households"></div>
+            <div class="callout-label">kabahayan</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <main class="main-layout">
       <!-- Left Panel: Controls / Sidebar -->
       <section class="panel sidebar-panel">
@@ -35,13 +55,14 @@
           <div class="tabs-group">
             <button class="tab-btn active" data-mode="cloud">1. Data Insight</button>
             <button class="tab-btn" data-mode="anomaly">2. Linguistic Anomaly</button>
-            <button class="tab-btn" data-mode="nlp">3. NLP Application</button>
+            <button class="tab-btn" data-mode="network">3. Word Co-occurrence Map</button>
+            <button class="tab-btn" data-mode="nlp">4. NLP Application</button>
           </div>
         </div>
 
         <!-- Dynamic Input Container: Only appears for Mode 2 -->
         <div class="control-group" id="search-container" style="display: none;">
-          <label for="target-word-select">Pumili ng Salita (Homograph)</label>
+          <label for="target-word-select" id="search-label">Pumili ng Salita (Homograph)</label>
           <select id="target-word-select">
             <!-- Populated dynamically via script.js -->
           </select>

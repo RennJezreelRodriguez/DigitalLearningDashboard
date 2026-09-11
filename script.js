@@ -11,6 +11,107 @@ let state = {
   viewMode: "cloud"
 };
 
+/* Static reference data for the Language Info card (item 1 from the wireframe) */
+const langInfo = {
+  Tagalog: {
+    heading: "Tagalog — Central Philippine Tagalog subgroup",
+    branch: "Malayo-Polynesian",
+    subgroup: "Central Philippine",
+    region: "Katagalugan, Luzon",
+    population: "28,000,000+ (L1)",
+    households: "10,522,507"
+  },
+  Waray: {
+    heading: "Waray-Waray — Bisayan subgroup",
+    branch: "Malayo-Polynesian",
+    subgroup: "Bisayan",
+    region: "Silangang Visayas",
+    population: "~2,600,000",
+    households: "698,745"
+  }
+};
+
+function updateLanguageInfo() {
+  const info = langInfo[state.corpus];
+  if (!info) return;
+  document.getElementById("lang-heading").textContent = info.heading;
+  document.getElementById("lang-branch").textContent = info.branch;
+  document.getElementById("lang-subgroup").textContent = info.subgroup;
+  document.getElementById("lang-region").textContent = info.region;
+  document.getElementById("lang-population").textContent = info.population;
+  document.getElementById("lang-households").textContent = info.households;
+}
+
+/* Parses "Mga Tagalog Collocates: hayop, gubat, usa" -> ["hayop","gubat","usa"] */
+function parseCollocates(str) {
+  if (!str) return [];
+  const idx = str.indexOf(":");
+  const listPart = idx >= 0 ? str.slice(idx + 1) : str;
+  return listPart.split(",").map(w => w.trim()).filter(Boolean).slice(0, 6);
+}
+
+/* Builds an inline SVG network graph: center word branching into
+   Tagalog collocates (left, blue) and Waray collocates (right, gold) */
+function buildCoocSVG(centerWord, tglList, warList) {
+  const width = 760, height = 320;
+  const cx = width / 2, cy = height / 2;
+  const centerR = 52;
+  const nodeR = 40;
+  const leftX = 130, rightX = width - 130;
+  const topMargin = 34, bottomMargin = 34;
+
+  function positions(count, x) {
+    if (count <= 0) return [];
+    if (count === 1) return [{ x, y: cy }];
+    const usable = height - topMargin - bottomMargin;
+    const step = usable / (count - 1);
+    const arr = [];
+    for (let i = 0; i < count; i++) arr.push({ x, y: topMargin + step * i });
+    return arr;
+  }
+
+  function node(x, y, r, fill, textColor, label) {
+    const fontSize = label.length > 8 ? 9.5 : 11;
+    const maxTextWidth = r * 1.6;
+    const approxWidth = label.length * (fontSize * 0.62);
+    const lengthAttr = approxWidth > maxTextWidth
+      ? ` textLength="${maxTextWidth.toFixed(0)}" lengthAdjust="spacingAndGlyphs"`
+      : "";
+    return `<g>
+      <circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="#1B120F" stroke-opacity="0.15" stroke-width="2"/>
+      <text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" fill="${textColor}" font-size="${fontSize}" font-weight="700" font-family="Inter, sans-serif"${lengthAttr}>${label}</text>
+    </g>`;
+  }
+
+  const tglPos = positions(tglList.length, leftX);
+  const warPos = positions(warList.length, rightX);
+
+  let lines = "";
+  tglPos.forEach(p => {
+    lines += `<line x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}" stroke="var(--secondary-blue)" stroke-width="1.5" opacity="0.4"/>`;
+  });
+  warPos.forEach(p => {
+    lines += `<line x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}" stroke="var(--accent-gold-deep)" stroke-width="1.5" opacity="0.5"/>`;
+  });
+
+  let nodes = "";
+  tglPos.forEach((p, i) => { nodes += node(p.x, p.y, nodeR, "var(--secondary-blue)", "#FFF7EC", tglList[i]); });
+  warPos.forEach((p, i) => { nodes += node(p.x, p.y, nodeR, "var(--accent-gold-deep)", "var(--primary-dark)", warList[i]); });
+
+  const centerNode = node(cx, cy, centerR, "var(--primary)", "#FFF7EC", centerWord.toUpperCase());
+
+  const tglCaptionX = tglPos.length ? leftX : leftX;
+  const warCaptionX = warPos.length ? rightX : rightX;
+
+  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+    <text x="${tglCaptionX}" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="var(--secondary-blue)" font-family="Inter, sans-serif">TAGALOG</text>
+    <text x="${warCaptionX}" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="var(--accent-gold-deep)" font-family="Inter, sans-serif">WARAY</text>
+    ${lines}
+    ${nodes}
+    ${centerNode}
+  </svg>`;
+}
+
 async function loadCSV(filename) {
   try {
     const response = await fetch(filename);
@@ -81,12 +182,18 @@ function updateDashboard() {
   const dataset = corpusData[state.corpus];
   if (!dataset || dataset.length === 0) return;
 
+  updateLanguageInfo();
+
   const wordCloudEl = document.getElementById("word-cloud");
   const collocListEl = document.getElementById("colloc-list");
   const searchContainer = document.getElementById("search-container");
-  
-  if (state.viewMode === "anomaly") {
+  const searchLabel = document.getElementById("search-label");
+
+  if (state.viewMode === "anomaly" || state.viewMode === "network") {
     searchContainer.style.display = "block";
+    searchLabel.textContent = state.viewMode === "network"
+      ? "Pumili ng Salita (Word Map)"
+      : "Pumili ng Salita (Homograph)";
   } else {
     searchContainer.style.display = "none";
   }
@@ -175,6 +282,35 @@ function updateDashboard() {
       <div class="colloc-row"><span>Tagalog Frequency:</span> <span class="colloc-count" style="color: var(--secondary-blue);">${tglMatch.freq.toLocaleString()}</span></div>
       <div class="colloc-row"><span>Waray Frequency:</span> <span class="colloc-count" style="color: var(--accent-gold-deep);">${warMatch.freq.toLocaleString()}</span></div>
     `;
+
+  } else if (state.viewMode === "network") {
+    document.getElementById("freq-heading").textContent = `Interactive Word Co-occurrence Map: "${state.searchTerm}"`;
+    document.getElementById("top-subtext").textContent = `Paghahambing ng mga kasamang salita (collocates) ng parehong salita sa Tagalog at Waray.`;
+    document.getElementById("colloc-heading").textContent = `Legend at Detalye`;
+    document.getElementById("colloc-subtext").textContent = `Paliwanag sa network graph sa itaas`;
+
+    const term = state.searchTerm.toLowerCase();
+    const entry = dictionaryData[term];
+    const tglList = parseCollocates(entry?.tagalog);
+    const warList = parseCollocates(entry?.waray);
+
+    if (!entry || (tglList.length === 0 && warList.length === 0)) {
+      wordCloudEl.innerHTML = `<div class="cooc-empty">Walang na-record na collocation data para sa salitang "<b style="color: var(--text-main);">${state.searchTerm}</b>". Pumili ng ibang salita sa dropdown.</div>`;
+      collocListEl.innerHTML = `
+        <div class="insight-box" style="margin-bottom: 10px; font-size: 13px;">
+          Walang datos na makikita para sa salitang ito. Subukan ang isa pa mula sa listahan.
+        </div>
+      `;
+    } else {
+      wordCloudEl.innerHTML = `<div class="cooc-wrap">${buildCoocSVG(state.searchTerm, tglList, warList)}</div>`;
+      collocListEl.innerHTML = `
+        <div class="insight-box" style="margin-bottom: 10px; font-size: 13px; line-height: 1.5;">
+          Ang gitnang bilog ay ang piniling salita. Ang mga bilog sa <b style="color: var(--secondary-blue);">kaliwa</b> ay mga Tagalog collocate nito, at ang mga bilog sa <b style="color: var(--accent-gold-deep);">kanan</b> ay mga Waray collocate nito.
+        </div>
+        <div class="colloc-row"><span>Tagalog Collocates:</span> <span class="colloc-count" style="color: var(--secondary-blue);">${tglList.length}</span></div>
+        <div class="colloc-row"><span>Waray Collocates:</span> <span class="colloc-count" style="color: var(--accent-gold-deep);">${warList.length}</span></div>
+      `;
+    }
 
   } else if (state.viewMode === "nlp") {
     document.getElementById("freq-heading").textContent = `NLP Preprocessing & Noise Reduction Pipeline`;
