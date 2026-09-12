@@ -104,18 +104,26 @@
           </section>
 
           <section class="panel nlp-panel">
-            <div class="panel-heading">Pagsusuri ng Gamit ng Salita sa Dayalekto</div>
-            <div class="subtext">Paghahambing ng kahulugan at konteksto ng paggamit ng salita sa Tagalog at Waray.</div>
+            <div class="panel-heading">Pagsusuri ng Gamit at Panlapi</div>
+            <div class="subtext">Pumili ng salita at ng tiyak na panlapi upang makita ang kahulugan at konteksto.</div>
 
-            <div class="control-group" id="nlp-search-container" style="margin-bottom: 18px;">
-              <label for="nlp-word-select">Pumili ng Salita para sa Pagsusuri</label>
-              <select id="nlp-word-select">
-                <!-- Populated dynamically via script.js -->
-              </select>
+            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+              <div class="control-group" style="flex: 1;">
+                <label for="nlp-word-select">Salita</label>
+                <select id="nlp-word-select">
+                  <!-- Populated dynamically via script.js -->
+                </select>
+              </div>
+              <div class="control-group" style="flex: 1;">
+                <label for="nlp-affix-select">Panlapi (Affix)</label>
+                <select id="nlp-affix-select">
+                  <option value="">Pumili muna ng salita</option>
+                </select>
+              </div>
             </div>
 
             <div id="nlp-explanation-content">
-              <!-- Dynamic dialect usage explanation rendered here -->
+              <!-- Dynamic affix explanation rendered here -->
             </div>
           </section>
         </div>

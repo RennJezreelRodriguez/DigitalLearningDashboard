@@ -174,6 +174,8 @@ async function loadDictionary() {
         nlpSelectEl.appendChild(option);
       });
     }
+
+    updateAffixDropdown();
   } catch (err) {
     console.error("Hindi ma-load ang dictionary.json", err);
   }
@@ -195,7 +197,7 @@ async function init() {
   updateDashboard();
 }
 
-/* Panel 1: Data Insight — word frequency bar chart, driven by state.corpus */
+/* Panel 1: Data Insight — word frequency bar chart with selection highlight */
 function renderDataInsight() {
   const dataset = corpusData[state.corpus];
   const wordCloudEl = document.getElementById("word-cloud");
@@ -213,11 +215,18 @@ function renderDataInsight() {
       <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">Paghahambing ng dalas (Frequency per corpus):</div>
       ${topItems.map(item => {
         const percentage = Math.round((item.freq / maxFreq) * 100);
+        const isSelected = item.word.toLowerCase() === state.searchTerm.toLowerCase();
+        
+        const barColor = isSelected ? "var(--primary)" : "var(--accent-gold-deep)";
+        const fontWeight = isSelected ? "700" : "600";
+        const textColor = isSelected ? "var(--primary-dark)" : "var(--text-main)";
+        const borderHighlight = isSelected ? "2px solid var(--primary)" : "1px solid transparent";
+
         return `
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 12px;">
-            <span style="width: 70px; font-weight: 600; text-align: right; color: var(--text-main);">${item.word}</span>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; border: ${borderHighlight}; padding: 2px 4px; border-radius: 4px; background: ${isSelected ? 'var(--accent-light)' : 'transparent'};">
+            <span style="width: 70px; font-weight: ${fontWeight}; text-align: right; color: ${textColor};">${item.word}</span>
             <div style="flex: 1; background: var(--border-color); border-radius: 4px; height: 18px; overflow: hidden; position: relative;">
-              <div style="background: var(--accent-gold-deep); width: ${percentage}%; height: 100%; border-radius: 4px;"></div>
+              <div style="background: ${barColor}; width: ${percentage}%; height: 100%; border-radius: 4px; transition: width 0.3s ease;"></div>
             </div>
             <span style="width: 70px; color: var(--text-muted); font-size: 11px;">${item.freq.toLocaleString()}</span>
           </div>
@@ -228,7 +237,7 @@ function renderDataInsight() {
 
   insightEl.innerHTML = `
     <div class="insight-box" style="margin-top: 14px; margin-bottom: 10px; font-size: 13px;">
-      <b>Estrukturang Pagsusuri:</b> Ang bar chart na ito ay nagpapakita ng mga pangunahing pananda sa ${state.corpus} corpus.
+      <b>Estrukturang Pagsusuri:</b> Ang bar chart na ito ay nagpapakita ng mga pangunahing pananda sa ${state.corpus} corpus. Ang salitang <b style="color: var(--primary);">${state.searchTerm}</b> ay naka-highlight kung kabilang ito sa nangungunang sampu.
     </div>
     <div class="colloc-row"><span>Kabuuang Malinis na Salita:</span> <span class="colloc-count">${dataset.length.toLocaleString()}</span></div>
   `;
@@ -267,13 +276,32 @@ function renderCooc() {
   }
 }
 
-/* Panel 3: Dialect Usage Explanation — driven by dropdown selector */
-function renderNLP() {
-  const selectEl = document.getElementById("nlp-word-select");
-  const contentEl = document.getElementById("nlp-explanation-content");
-  if (!selectEl || !contentEl) return;
+function updateAffixDropdown() {
+  const affixSelect = document.getElementById("nlp-affix-select");
+  if (!affixSelect) return;
 
-  const currentWord = selectEl.value || state.searchTerm;
+  const standardAffixes = [
+    { id: "nag-", label: "nag- (Aktibong Aspekto / Actor-focus)" },
+    { id: "um-", label: "um- (Pawatas / Naganap na)" },
+    { id: "-in", label: "-in (Pokus sa Layon / Object-focus)" },
+    { id: "-an", label: "-an (Lugar / Direksyunal)" },
+    { id: "-on", label: "-on (Kaparehong hulapi sa Waray)" }
+  ];
+
+  affixSelect.innerHTML = standardAffixes.map(a => 
+    `<option value="${a.id}">${a.label}</option>`
+  ).join("");
+}
+
+/* Panel 3: Dynamic Affix Selection & Contextual Meaning Breakdown */
+function renderNLP() {
+  const wordSelect = document.getElementById("nlp-word-select");
+  const affixSelect = document.getElementById("nlp-affix-select");
+  const contentEl = document.getElementById("nlp-explanation-content");
+  if (!wordSelect || !contentEl) return;
+
+  const currentWord = wordSelect.value || state.searchTerm;
+  const currentAffix = affixSelect ? affixSelect.value || "nag-" : "nag-";
   const entry = dictionaryData[currentWord];
 
   if (!entry) {
@@ -281,18 +309,48 @@ function renderNLP() {
     return;
   }
 
-  const tagalogUsage = entry.tagalog || "Ginagamit sa pangaraw-araw na komunikasyon sa mga rehiyong Tagalog.";
-  const warayUsage = entry.waray || "Ginagamit bilang bahagi ng talasalitaan ng mga Waray sa Silangang Visayas.";
+  let tagalogDesc = "";
+  let warayDesc = "";
+
+  switch(currentAffix) {
+    case "nag-":
+      tagalogDesc = `Sa Tagalog, ang unlaping <b>nag-</b> sa salitang "${currentWord}" ay nagpapahiwatig ng kilos na ginagawa o ginawa na (actor-focus). Halimbawa: nag${currentWord}.`;
+      warayDesc = `Sa Waray, ang katumbas nito ay nagpapakita rin ng tuloy-tuloy na pagkilos o pagganap gamit ang ugat.`;
+      break;
+    case "um-":
+      tagalogDesc = `Ang infiks o unlaping <b>um-</b> ay tumutukoy sa payak na kilos o pawatas na pokus sa aktor sa Tagalog.`;
+      warayDesc = `Sa diyalektong Waray, ang mga pandiwa ay kadalasang gumagamit ng sariling sistema ng unlapi tulad ng nag- sa halip na purong um-.`;
+      break;
+    case "-in":
+      tagalogDesc = `Ang hulaping <b>-in</b> sa Tagalog ay nagpapakita ng object-focus (layon ng pandiwa).`;
+      warayDesc = `Sa Waray, ang katumbas na hulapi para dito ay kadalasang <b>-on</b> (hal. ${currentWord}on).`;
+      break;
+    case "-an":
+      tagalogDesc = `Ang hulaping <b>-an</b> ay nagpapahiwatig ng lokasyon o direksyon kung saan nagaganap ang kilos ng salitang "${currentWord}".`;
+      warayDesc = `Sa Waray, ginagamit din ang hulaping <b>-an</b> o sa pamamagitan ng paglalagay ng panlaping pang-lokasyon.`;
+      break;
+    case "-on":
+      tagalogDesc = `Hindi gaanong ginagamit bilang direktang hulapi sa Tagalog; kadalasang pinapalitan ng <b>-in</b>.`;
+      warayDesc = `Isang pangunahing hulapi sa Waray (object-focus suffix) na nagasaayos ng layon o direksyon ng salitang "${currentWord}".`;
+      break;
+    default:
+      tagalogDesc = `Pagsusuri ng panlapi sa Tagalog para sa salitang "${currentWord}".`;
+      warayDesc = `Pagsusuri ng panlapi sa Waray para sa salitang "${currentWord}".`;
+  }
 
   contentEl.innerHTML = `
+    <div style="background: var(--accent-light); padding: 10px 14px; border-radius: var(--radius-sm); margin-bottom: 12px; font-size: 13px; border-left: 3px solid var(--accent-gold-deep);">
+      <b>Salitang-Ugat:</b> <span style="color: var(--primary-dark); font-weight: 700;">${currentWord.toUpperCase()}</span> | 
+      <b>Napiling Panlapi:</b> <span style="color: var(--primary); font-weight: 700;">${currentAffix}</span>
+    </div>
     <div class="dialect-compare-grid">
       <div class="dialect-card tagalog">
-        <div class="dialect-card-title">Gamit sa Tagalog</div>
-        <div class="dialect-card-body">${tagalogUsage}</div>
+        <div class="dialect-card-title">Gamit sa Tagalog (${currentAffix})</div>
+        <div class="dialect-card-body">${tagalogDesc}</div>
       </div>
       <div class="dialect-card waray">
-        <div class="dialect-card-title">Gamit sa Waray</div>
-        <div class="dialect-card-body">${warayUsage}</div>
+        <div class="dialect-card-title">Gamit sa Waray (${currentAffix})</div>
+        <div class="dialect-card-body">${warayDesc}</div>
       </div>
     </div>
   `;
@@ -309,6 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const corpusSelect = document.getElementById("corpus-select");
   const targetSelect = document.getElementById("target-word-select");
   const nlpSelect = document.getElementById("nlp-word-select");
+  const nlpAffixSelect = document.getElementById("nlp-affix-select");
   const showDataBtn = document.getElementById("show-data-btn");
   const homeBtn = document.getElementById("home-btn");
   const homeView = document.getElementById("home-view");
@@ -343,7 +402,9 @@ document.addEventListener("DOMContentLoaded", () => {
     targetSelect.addEventListener("change", (e) => {
       state.searchTerm = e.target.value.trim();
       if (nlpSelect) nlpSelect.value = state.searchTerm;
+      updateAffixDropdown();
       renderCooc();
+      renderDataInsight();
       renderNLP();
     });
   }
@@ -352,7 +413,15 @@ document.addEventListener("DOMContentLoaded", () => {
     nlpSelect.addEventListener("change", (e) => {
       state.searchTerm = e.target.value.trim();
       if (targetSelect) targetSelect.value = state.searchTerm;
+      updateAffixDropdown();
       renderCooc();
+      renderDataInsight();
+      renderNLP();
+    });
+  }
+
+  if (nlpAffixSelect) {
+    nlpAffixSelect.addEventListener("change", () => {
       renderNLP();
     });
   }
