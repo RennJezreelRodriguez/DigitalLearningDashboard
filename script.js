@@ -146,9 +146,12 @@ async function loadDictionary() {
     dictionaryData = await response.json();
 
     const selectEl = document.getElementById("target-word-select");
+    const nlpSelectEl = document.getElementById("nlp-word-select");
+    const sortedWords = Object.keys(dictionaryData).sort();
+
     if (selectEl) {
       selectEl.innerHTML = "";
-      Object.keys(dictionaryData).sort().forEach(word => {
+      sortedWords.forEach(word => {
         const option = document.createElement("option");
         option.value = word;
         option.textContent = word;
@@ -156,6 +159,19 @@ async function loadDictionary() {
           option.selected = true;
         }
         selectEl.appendChild(option);
+      });
+    }
+
+    if (nlpSelectEl) {
+      nlpSelectEl.innerHTML = "";
+      sortedWords.forEach(word => {
+        const option = document.createElement("option");
+        option.value = word;
+        option.textContent = word;
+        if (word === state.searchTerm) {
+          option.selected = true;
+        }
+        nlpSelectEl.appendChild(option);
       });
     }
   } catch (err) {
@@ -251,68 +267,35 @@ function renderCooc() {
   }
 }
 
-/* Panel 3: NLP Preprocessing */
+/* Panel 3: Dialect Usage Explanation — driven by dropdown selector */
 function renderNLP() {
-  const contentEl = document.getElementById("nlp-content");
-  const workspaceEl = document.getElementById("nlp-workspace");
-  if (!contentEl || !workspaceEl || contentEl.dataset.rendered === "true") return;
+  const selectEl = document.getElementById("nlp-word-select");
+  const contentEl = document.getElementById("nlp-explanation-content");
+  if (!selectEl || !contentEl) return;
 
-  contentEl.innerHTML = `
-    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; margin-bottom: 14px;">
-      <div style="background: var(--accent-light); color: var(--text-main); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); border-left: 3px solid var(--secondary-blue);">
-        <b>1. Token Filtering:</b> Pagtanggal ng mga bantas at hindi kinakailangang karakter mula sa corpus.
-      </div>
-      <div style="background: var(--accent-light); color: var(--text-main); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold-deep);">
-        <b>2. Lemmatization:</b> Pag-normalize ng mga pandiwa patungo sa kanilang salitang-ugat.
-      </div>
-    </div>
-  `;
+  const currentWord = selectEl.value || state.searchTerm;
+  const entry = dictionaryData[currentWord];
 
-  workspaceEl.innerHTML = `
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <div class="insight-box" style="font-size: 13px;">
-        <b>Gawain — Paghahanda para sa Pagsasalin:</b><br>
-        I-edit ang teksto sa ibaba at i-click ang button upang linisin ang morpolohikal na ingay.
-      </div>
-      <textarea id="taglishInput" style="width: 100%; min-height: 90px; background: var(--input-bg); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; font-family: inherit; font-size: 13px; resize: vertical;">Kapag nag-aaral ako, parang gustong-gustong kong mag-relax muna, so nagbabasa ako ng libro. Actually, mas gusto ko ring kumakain ng meryenda while nagbabasa.</textarea>
-      <button id="cleanBtn" style="background: var(--accent-gold-deep); color: var(--primary-dark); border: none; padding: 10px 16px; border-radius: 6px; font-weight: 700; font-size: 13px; cursor: pointer;">Linisin ang Teksto para sa AI</button>
-      <div id="cleanOutput" style="background: var(--accent-light); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; font-size: 13px; line-height: 1.6; display: none;"></div>
-    </div>
-  `;
-
-  const cleanBtn = document.getElementById("cleanBtn");
-  if (cleanBtn) {
-    cleanBtn.addEventListener("click", () => {
-      const inputVal = document.getElementById("taglishInput").value;
-      const rootMap = [{ pattern: /\b(kumakain|kakain|nangaon|mangaon)\b/gi, root: "kain/kaon" }];
-      const fillerWords = ["so", "actually", "like", "while", "basically"];
-
-      let html = inputVal;
-      let changes = [];
-
-      rootMap.forEach(({ pattern, root }) => {
-        html = html.replace(pattern, m => {
-          changes.push(`${m} → ${root}`);
-          return `<mark style="background: rgba(224,166,40,0.3); color: var(--primary-dark); padding: 0 3px; border-radius: 3px; font-weight: 700;">${root}</mark>`;
-        });
-      });
-
-      fillerWords.forEach(fw => {
-        const re = new RegExp(`\\b${fw}\\b,?`, "gi");
-        html = html.replace(re, m => {
-          changes.push(`inalis: "${m.trim()}"`);
-          return `<mark style="background: rgba(163,31,34,0.16); color: var(--primary); text-decoration: line-through; padding: 0 3px; border-radius: 3px;">${m}</mark>`;
-        });
-      });
-
-      const out = document.getElementById("cleanOutput");
-      out.style.display = "block";
-      out.innerHTML = `<div style="margin-bottom: 8px;"><b style="color: var(--text-main);">Resulta:</b><br>${html}</div>` +
-        (changes.length ? `<div style="font-size: 11px; color: var(--text-muted); border-top: 1px dashed var(--border-color); padding-top: 6px; margin-top: 6px;"><b style="color: var(--text-main);">Mga Binago (${changes.length}):</b><br>${changes.join("<br>")}</div>` : ``);
-    });
+  if (!entry) {
+    contentEl.innerHTML = `<div class="cooc-empty">Walang nakitang paliwanag para sa salitang ito.</div>`;
+    return;
   }
 
-  contentEl.dataset.rendered = "true";
+  const tagalogUsage = entry.tagalog || "Ginagamit sa pangaraw-araw na komunikasyon sa mga rehiyong Tagalog.";
+  const warayUsage = entry.waray || "Ginagamit bilang bahagi ng talasalitaan ng mga Waray sa Silangang Visayas.";
+
+  contentEl.innerHTML = `
+    <div class="dialect-compare-grid">
+      <div class="dialect-card tagalog">
+        <div class="dialect-card-title">Gamit sa Tagalog</div>
+        <div class="dialect-card-body">${tagalogUsage}</div>
+      </div>
+      <div class="dialect-card waray">
+        <div class="dialect-card-title">Gamit sa Waray</div>
+        <div class="dialect-card-body">${warayUsage}</div>
+      </div>
+    </div>
+  `;
 }
 
 function updateDashboard() {
@@ -325,6 +308,7 @@ function updateDashboard() {
 document.addEventListener("DOMContentLoaded", () => {
   const corpusSelect = document.getElementById("corpus-select");
   const targetSelect = document.getElementById("target-word-select");
+  const nlpSelect = document.getElementById("nlp-word-select");
   const showDataBtn = document.getElementById("show-data-btn");
   const homeBtn = document.getElementById("home-btn");
   const homeView = document.getElementById("home-view");
@@ -358,7 +342,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (targetSelect) {
     targetSelect.addEventListener("change", (e) => {
       state.searchTerm = e.target.value.trim();
+      if (nlpSelect) nlpSelect.value = state.searchTerm;
       renderCooc();
+      renderNLP();
+    });
+  }
+
+  if (nlpSelect) {
+    nlpSelect.addEventListener("change", (e) => {
+      state.searchTerm = e.target.value.trim();
+      if (targetSelect) targetSelect.value = state.searchTerm;
+      renderCooc();
+      renderNLP();
     });
   }
 

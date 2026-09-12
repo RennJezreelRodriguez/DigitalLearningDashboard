@@ -86,7 +86,7 @@
           <div id="freq-insight"></div>
         </section>
 
-        <!-- Right column: Co-occurrence Map (top) + NLP (bottom), stacked -->
+        <!-- Right column: Co-occurrence Map (top) + NLP/Dialect Usage (bottom), stacked -->
         <div class="right-column">
           <section class="panel cooc-panel">
             <div class="panel-heading" id="cooc-heading">Interactive Word Co-occurrence Map</div>
@@ -104,10 +104,19 @@
           </section>
 
           <section class="panel nlp-panel">
-            <div class="panel-heading">NLP Preprocessing &amp; Noise Reduction Pipeline</div>
-            <div class="subtext">Paghahanda ng corpus bago isalang sa AI Translation model.</div>
-            <div id="nlp-content"></div>
-            <div id="nlp-workspace"></div>
+            <div class="panel-heading">Pagsusuri ng Gamit ng Salita sa Dayalekto</div>
+            <div class="subtext">Paghahambing ng kahulugan at konteksto ng paggamit ng salita sa Tagalog at Waray.</div>
+
+            <div class="control-group" id="nlp-search-container" style="margin-bottom: 18px;">
+              <label for="nlp-word-select">Pumili ng Salita para sa Pagsusuri</label>
+              <select id="nlp-word-select">
+                <!-- Populated dynamically via script.js -->
+              </select>
+            </div>
+
+            <div id="nlp-explanation-content">
+              <!-- Dynamic dialect usage explanation rendered here -->
+            </div>
           </section>
         </div>
       </main>

@@ -353,7 +353,8 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   color: var(--text-muted);
 }
 
-#search-container {
+#search-container,
+#nlp-search-container {
   margin-bottom: 18px;
 }
 
@@ -423,6 +424,46 @@ textarea:focus {
   line-height: 1.5;
   color: var(--primary-dark);
   margin-bottom: 12px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Dialect Comparison Grid (NLP Panel Replacement)                   */
+/* ------------------------------------------------------------------ */
+.dialect-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.dialect-card {
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.dialect-card-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.dialect-card.tagalog .dialect-card-title {
+  color: var(--secondary-blue);
+}
+
+.dialect-card.waray .dialect-card-title {
+  color: var(--primary-dark);
+}
+
+.dialect-card-body {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-main);
 }
 
 /* ------------------------------------------------------------------ */
@@ -547,5 +588,8 @@ textarea:focus {
   .data-insight-panel,
   .right-column {
     grid-column: 1;
+  }
+  .dialect-compare-grid {
+    grid-template-columns: 1fr;
   }
 }
