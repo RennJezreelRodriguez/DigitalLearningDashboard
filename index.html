@@ -7,91 +7,114 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <div id="app">
-    <header class="header">
-      <div class="header-title">Dashboard sa Pagsusuri ng Wika (Tagalog kumpara sa Waray)</div>
-      <div class="header-subtitle">Pagsusuri ng Corpus, Data Insights, Linguistic Anomalies, at NLP Preprocessing</div>
-    </header>
 
-    <!-- Language Info Card: always visible, updates whenever the corpus/language changes -->
-    <div class="lang-panel-wrap">
-      <section class="panel language-panel" id="language-panel">
-        <div class="panel-heading" style="margin-bottom: 16px;">Detalye ng Wika</div>
-        <div class="lang-panel-inner">
-          <div class="lang-fields">
-            <div class="lang-heading" id="lang-heading"></div>
-            <div class="lang-field"><span class="lang-label">Sangay</span><span class="lang-value" id="lang-branch"></span></div>
-            <div class="lang-field"><span class="lang-label">Sub-grupo</span><span class="lang-value" id="lang-subgroup"></span></div>
-            <div class="lang-field"><span class="lang-label">Rehiyon</span><span class="lang-value" id="lang-region"></span></div>
-            <div class="lang-field"><span class="lang-label">Populasyon</span><span class="lang-value" id="lang-population"></span></div>
-          </div>
-          <div class="lang-callout">
-            <div class="callout-number" id="lang-households"></div>
-            <div class="callout-label">kabahayan</div>
-          </div>
-        </div>
-      </section>
+    <!-- HOME PAGE VIEW -->
+    <div id="home-view" class="page-view active">
+      <div class="home-hero-container">
+        <h1>ANO ANG WARAY AT TAGALOG?</h1>
+        <p>
+          Ang Waray ay isa sa mga pangunahing katutubong wika sa Pilipinas na sinasalita ng mga Waray sa rehiyon ng Silangang Visayas, partikular sa mga lalawigan ng Silangang Samar, Hilagang Samar, Samar, at sa malaking bahagi ng Leyte at Biliran. Kilala rin ito sa mga tawag na Winaray, Waray-Waray, at Samar-Leyte, at nagsisilbing pangunahing wikang ginagamit sa pang-araw-araw na komunikasyon ng mga mamamayan sa nasabing mga lugar. Bukod sa pagiging kasangkapan sa pakikipagtalastasan, mahalaga rin ang Waray sa pagpapanatili ng panitikan, mga awiting-bayan, alamat, kaugalian, at iba pang tradisyong nagpapakita ng mayamang kultura at pagkakakilanlan ng mga Waray (Komisyon sa Wikang Filipino [KWF], 2023; Montecalvo, 2021). Ayon din sa CCP Encyclopedia of Philippine Art, ang wikang Waray ay hindi lamang bahagi ng pagkakakilanlang etnolingguwistiko ng mga Waray kundi nagsisilbi ring sisidlan ng kanilang kasaysayan, paniniwala, at mga kaugaliang napapasa sa bawat salinlahi.
+        </p>
+        <p>
+          Samantala, ang Tagalog ay isa rin sa mga pangunahing katutubong wika sa Pilipinas na pangunahing ginagamit sa Kalakhang Maynila, CALABARZON, MIMAROPA, at mga karatig na lalawigan sa Luzon. Ito ang naging batayan ng Filipino, ang pambansang wika ng bansa, kaya malawak ang paggamit nito sa edukasyon, pamahalaan, mass media, at iba pang opisyal na larangan. Dahil sa lawak ng saklaw at gamit nito, nagsisilbi ang Tagalog bilang mahalagang wikang nag-uugnay sa iba't ibang pangkat etnolingguwistiko sa Pilipinas. Ayon sa CCP Encyclopedia of Philippine Art, ang Tagalog ay may mahalagang papel sa paghubog ng pambansang identidad at patuloy na umuunlad kasabay ng pagbabago ng lipunan at kultura ng mga Pilipino.
+        </p>
+        <button id="show-data-btn" class="btn-primary-custom">Ipakita ang Data (Dashboard)</button>
+      </div>
     </div>
 
-    <main class="main-layout">
-      <!-- Left Panel: Controls / Sidebar -->
-      <section class="panel sidebar-panel">
-        <h3 class="panel-heading">Mga Kontrol</h3>
-        
-        <div class="control-group">
-          <label for="corpus-select">Pumili ng Corpus</label>
-          <select id="corpus-select">
-            <option value="Tagalog">Tagalog (tgl_wikipedia_2021)</option>
-            <option value="Waray">Waray (war_wikipedia_2021)</option>
-          </select>
-        </div>
-
-        <!-- Mode Selection Tabs (Replaced Dropdown) -->
-        <div class="control-group">
-          <label>Modo ng Pagsusuri</label>
-          <div class="tabs-group">
-            <button class="tab-btn active" data-mode="cloud">1. Data Insight</button>
-            <button class="tab-btn" data-mode="anomaly">2. Linguistic Anomaly</button>
-            <button class="tab-btn" data-mode="network">3. Word Co-occurrence Map</button>
-            <button class="tab-btn" data-mode="nlp">4. NLP Application</button>
+    <!-- ACTUAL DATA / DASHBOARD PAGE VIEW -->
+    <div id="dashboard-view" class="page-view">
+      <header class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <div>
+            <div class="header-title">Dashboard sa Pagsusuri ng Wika (Tagalog kumpara sa Waray)</div>
+            <div class="header-subtitle">Pagsusuri ng Corpus, Data Insights, at NLP Preprocessing</div>
+          </div>
+          <div>
+            <button id="home-btn" class="home-btn-header">← Bumalik sa Home</button>
           </div>
         </div>
+      </header>
 
-        <!-- Dynamic Input Container: Only appears for Mode 2 -->
-        <div class="control-group" id="search-container" style="display: none;">
-          <label for="target-word-select" id="search-label">Pumili ng Salita (Homograph)</label>
-          <select id="target-word-select">
-            <!-- Populated dynamically via script.js -->
-          </select>
-        </div>
-
-        <div class="help-text" id="status-text">
-          Nilo-load ang mga CSV files mula sa Data folder...
-        </div>
-      </section>
-
-      <!-- Right Column: Split into Top and Bottom Panels -->
-      <div class="right-column">
-        <!-- Top-Right Panel -->
-        <section class="panel top-panel">
-          <div class="panel-heading" id="freq-heading">Dalas ng Salita (Word Frequency & Data Insight)</div>
-          <div class="subtext" id="top-subtext">Pagsusuri sa estruktura at dalas ng mga marker.</div>
-          <div class="word-cloud-container" id="word-cloud"></div>
-        </section>
-
-        <!-- Bottom-Right Panel -->
-        <section class="panel bottom-panel">
-          <div class="panel-heading" id="colloc-heading">Resulta ng Pagsusuri at Konteksto</div>
-          <div class="subtext" id="colloc-subtext">Paghahambing ng kahulugan at paglilinis ng ingay</div>
-          <div id="colloc-list"></div>
+      <!-- Language Info Card: always visible, updates whenever the corpus/language changes -->
+      <div class="lang-panel-wrap">
+        <section class="panel language-panel" id="language-panel">
+          <div class="panel-heading" style="margin-bottom: 16px;">Detalye ng Wika</div>
+          <div class="lang-panel-inner">
+            <div class="lang-fields">
+              <div class="lang-heading" id="lang-heading"></div>
+              <div class="lang-field"><span class="lang-label">Sangay</span><span class="lang-value" id="lang-branch"></span></div>
+              <div class="lang-field"><span class="lang-label">Sub-grupo</span><span class="lang-value" id="lang-subgroup"></span></div>
+              <div class="lang-field"><span class="lang-label">Rehiyon</span><span class="lang-value" id="lang-region"></span></div>
+              <div class="lang-field"><span class="lang-label">Populasyon</span><span class="lang-value" id="lang-population"></span></div>
+            </div>
+            <div class="lang-callout">
+              <div class="callout-number" id="lang-households"></div>
+              <div class="callout-label">kabahayan</div>
+            </div>
+          </div>
         </section>
       </div>
-    </main>
+
+      <!-- Compact controls bar: corpus selector + status, always visible above everything -->
+      <div class="controls-bar-wrap">
+        <section class="panel controls-bar">
+          <div class="control-group corpus-control">
+            <label for="corpus-select">Pumili ng Corpus</label>
+            <select id="corpus-select">
+              <option value="Tagalog">Tagalog (tgl_wikipedia_2021)</option>
+              <option value="Waray">Waray (war_wikipedia_2021)</option>
+            </select>
+          </div>
+          <div class="help-text" id="status-text">
+            Nilo-load ang mga CSV files mula sa Data folder...
+          </div>
+        </section>
+      </div>
+
+      <!-- Main content: 3 panels, always visible side-by-side, no tab switching -->
+      <main class="main-layout">
+        <!-- Panel 1: Data Insight (frequency chart) -->
+        <section class="panel data-insight-panel">
+          <div class="panel-heading" id="freq-heading">Dalas ng Salita (Word Frequency &amp; Data Insight)</div>
+          <div class="subtext" id="freq-subtext">Mga salitang may mataas na frequency markers</div>
+          <div class="word-cloud-container" id="word-cloud"></div>
+          <div id="freq-insight"></div>
+        </section>
+
+        <!-- Right column: Co-occurrence Map (top) + NLP (bottom), stacked -->
+        <div class="right-column">
+          <section class="panel cooc-panel">
+            <div class="panel-heading" id="cooc-heading">Interactive Word Co-occurrence Map</div>
+            <div class="subtext" id="cooc-subtext">Paghahambing ng mga kasamang salita (collocates) ng parehong salita sa Tagalog at Waray.</div>
+
+            <div class="control-group" id="search-container">
+              <label for="target-word-select" id="search-label">Pumili ng Salita</label>
+              <select id="target-word-select">
+                <!-- Populated dynamically via script.js -->
+              </select>
+            </div>
+
+            <div id="cooc-graph"></div>
+            <div id="cooc-legend"></div>
+          </section>
+
+          <section class="panel nlp-panel">
+            <div class="panel-heading">NLP Preprocessing &amp; Noise Reduction Pipeline</div>
+            <div class="subtext">Paghahanda ng corpus bago isalang sa AI Translation model.</div>
+            <div id="nlp-content"></div>
+            <div id="nlp-workspace"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
   </div>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

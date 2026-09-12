@@ -79,6 +79,91 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Page View Toggle                                                    */
+/* ------------------------------------------------------------------ */
+.page-view {
+  display: none;
+}
+.page-view.active {
+  display: block;
+}
+
+/* Home Hero Container Styles */
+.home-hero-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  outline: 1px solid rgba(241,196,15,0.35);
+  outline-offset: 3px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  position: relative;
+}
+
+.home-hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-gold), var(--secondary-blue));
+  border-radius: 2px;
+}
+
+.home-hero-container h1 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+}
+
+.home-hero-container p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+/* Custom Buttons */
+.btn-primary-custom {
+  background-color: var(--primary);
+  color: #FFF7EC;
+  font-weight: 700;
+  padding: 12px 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-dark);
+}
+
+.home-btn-header {
+  background-color: var(--accent-light);
+  color: var(--primary-dark);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.home-btn-header:hover {
+  background-color: var(--border-color);
+}
+
+/* ------------------------------------------------------------------ */
 /* Header — layered torn-banner treatment                              */
 /* ------------------------------------------------------------------ */
 .header {
@@ -88,6 +173,13 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   color: #FFF7EC;
   overflow: hidden;
   border-bottom: 5px solid var(--accent-gold-deep);
+  z-index: 1;
+}
+
+/* Ensure inner contents sit above background graphics */
+.header > div {
+  position: relative;
+  z-index: 2;
 }
 
 /* radiating sunburst watermark behind the title */
@@ -150,12 +242,42 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   letter-spacing: 0.02em;
 }
 
+/* ------------------------------------------------------------------ */
+/* Compact controls bar (corpus selector + status)                     */
+/* ------------------------------------------------------------------ */
+.controls-bar-wrap {
+  padding: 20px 34px 0;
+}
+
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 18px 24px;
+}
+
+.corpus-control {
+  flex: 0 0 auto;
+  min-width: 260px;
+}
+
+.controls-bar .help-text {
+  flex: 1;
+  min-width: 220px;
+  margin-top: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Main layout — 2 columns, all panels always visible (no tabs)        */
+/* ------------------------------------------------------------------ */
 .main-layout {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 0.85fr 1.15fr;
   gap: 24px;
-  padding: 28px 34px 36px;
+  padding: 24px 34px 36px;
   flex: 1;
+  align-items: stretch;
 }
 
 /* ------------------------------------------------------------------ */
@@ -183,15 +305,11 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   border-radius: 2px;
 }
 
-.sidebar-panel {
+.data-insight-panel {
   grid-column: 1;
-  grid-row: span 2;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  height: fit-content;
-  position: sticky;
-  top: 24px;
+  gap: 4px;
 }
 
 .right-column {
@@ -201,8 +319,10 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   gap: 24px;
 }
 
-.top-panel, .bottom-panel {
+.cooc-panel, .nlp-panel {
   min-height: 260px;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-heading {
@@ -233,43 +353,13 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   color: var(--text-muted);
 }
 
-/* Tabs Styling */
-.tabs-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+#search-container {
+  margin-bottom: 18px;
 }
 
-.tab-btn {
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  background: var(--input-bg);
-  font-size: 13px;
-  font-family: var(--font-ui);
-  color: var(--text-main);
-  text-align: left;
-  cursor: pointer;
-  transition: var(--transition);
-  font-weight: 500;
-}
-
-.tab-btn:hover {
-  background: var(--accent-light);
-  border-color: var(--accent);
-}
-
-.tab-btn.active {
-  background: var(--primary);
-  color: #FFF7EC;
-  border-color: var(--primary-dark);
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(163, 31, 34, 0.35);
-}
-
-.sidebar-panel select,
-.sidebar-panel input {
+select,
+input,
+textarea {
   width: 100%;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
@@ -282,8 +372,9 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   transition: var(--transition);
 }
 
-.sidebar-panel select:focus,
-.sidebar-panel input:focus {
+select:focus,
+input:focus,
+textarea:focus {
   border-color: var(--accent);
   background: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(217, 107, 39, 0.15);
@@ -297,7 +388,6 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   border-radius: var(--radius-sm);
   border-left: 4px solid var(--accent-gold-deep);
   line-height: 1.5;
-  margin-top: auto;
 }
 
 .word-cloud-container {
@@ -445,4 +535,17 @@ body::after  { right: 0; border-left: 2px solid #1B120F; }
   font-size: 13px;
   text-align: center;
   padding: 20px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive: stack columns on narrow screens                         */
+/* ------------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .data-insight-panel,
+  .right-column {
+    grid-column: 1;
+  }
 }
