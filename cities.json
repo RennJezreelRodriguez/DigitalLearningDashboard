@@ -1,0 +1,22 @@
+{
+  "Tagalog": [
+    {"city": "Maynila / NCR", "province": "Metro Manila", "lat": 14.5995, "lon": 120.9842, "pop": "13,400,000", "det": "Pambansang Punong Rehiyon"},
+    {"city": "Lungsod Quezon", "province": "Metro Manila", "lat": 14.6760, "lon": 121.0437, "pop": "2,960,000", "det": "Pinakamalaking lungsod sa Metro Manila"},
+    {"city": "Calamba", "province": "Laguna", "lat": 14.2117, "lon": 121.1653, "pop": "540,000", "det": "Pusod ng rehiyong CALABARZON"},
+    {"city": "Batangas City", "province": "Batangas", "lat": 13.7565, "lon": 121.0583, "pop": "350,000", "det": "Timog Katagalugan"},
+    {"city": "Malolos", "province": "Bulacan", "lat": 14.8517, "lon": 120.8164, "pop": "260,000", "det": "Kabisera ng Bulacan"},
+    {"city": "Lucena", "province": "Quezon", "lat": 13.9314, "lon": 121.6172, "pop": "270,000", "det": "Silangang Katagalugan"},
+    {"city": "Antipolo", "province": "Rizal", "lat": 14.5842, "lon": 121.1764, "pop": "887,000", "det": "Lalawigan ng Rizal"},
+    {"city": "Calapan", "province": "Oriental Mindoro", "lat": 13.4115, "lon": 121.1803, "pop": "145,000", "det": "Kabisera ng Oriental Mindoro"}
+  ],
+  "Waray": [
+    {"city": "Tacloban City", "province": "Leyte", "lat": 11.2543, "lon": 125.0033, "pop": "250,000", "det": "Kabisera ng Rehiyong Eastern Visayas"},
+    {"city": "Ormoc City", "province": "Leyte", "lat": 11.0064, "lon": 124.6075, "pop": "230,000", "det": "Sentro ng kalakalan sa Kanlurang Leyte"},
+    {"city": "Calbayog City", "province": "Samar", "lat": 12.0667, "lon": 124.6000, "pop": "180,000", "det": "Pinakamalaking lungsod sa Samar"},
+    {"city": "Catbalogan City", "province": "Samar", "lat": 11.7753, "lon": 124.8859, "pop": "100,000", "det": "Kabisera ng Samar"},
+    {"city": "Baybay City", "province": "Leyte", "lat": 10.6789, "lon": 124.8006, "pop": "115,000", "det": "Katimugang Leyte"},
+    {"city": "Maasin City", "province": "Southern Leyte", "lat": 10.1319, "lon": 124.8442, "pop": "90,000", "det": "Kabisera ng Southern Leyte"},
+    {"city": "Borongan City", "province": "Eastern Samar", "lat": 11.6086, "lon": 125.4306, "pop": "70,000", "det": "Kabisera ng Eastern Samar"},
+    {"city": "Naval", "province": "Biliran", "lat": 11.5667, "lon": 124.3958, "pop": "65,000", "det": "Kabisera ng Biliran"}
+  ]
+}

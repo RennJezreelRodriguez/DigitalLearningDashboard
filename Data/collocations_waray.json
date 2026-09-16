@@ -1,0 +1,694 @@
+{
+  "usa": {
+    "ka": 6,
+    "nga": 5,
+    "mga": 4,
+    "la": 3,
+    "ini": 2,
+    "adlaw": 1
+  },
+  "wala": {
+    "tuo": 6,
+    "wala": 5,
+    "dapit": 4,
+    "kamot": 3,
+    "bahin": 2,
+    "ngadto": 1
+  },
+  "bukid": {
+    "dagko": 6,
+    "taas": 5,
+    "ngadto": 4,
+    "kahoy": 3,
+    "uma": 2,
+    "bungtod": 1
+  },
+  "gamot": {
+    "tanom": 5,
+    "kahoy": 4,
+    "gamot": 3,
+    "gamotnon": 2,
+    "dahon": 1
+  },
+  "mahusay": {
+    "maupay": 5,
+    "tawo": 4,
+    "babaye": 3,
+    "lalaki": 2,
+    "hitsura": 1
+  },
+  "daan": {
+    "daan": 5,
+    "panahon": 4,
+    "hadto": 3,
+    "tuig": 2,
+    "karaan": 1
+  },
+  "kalayo": {
+    "kalayo": 5,
+    "sunog": 4,
+    "balay": 3,
+    "dako": 2,
+    "tubig": 1
+  },
+  "aso": {
+    "aso": 5,
+    "kalayo": 4,
+    "sunog": 3,
+    "kusina": 2,
+    "balay": 1
+  },
+  "langgam": {
+    "katamsi": 5,
+    "manok": 4,
+    "kahoy": 3,
+    "pakpak": 2,
+    "mga": 1
+  },
+  "libog": {
+    "huna-huna": 5,
+    "problema": 4,
+    "tawo": 3,
+    "buot": 2,
+    "isip": 1
+  },
+  "kamot": {
+    "tuo": 6,
+    "wala": 5,
+    "akon": 4,
+    "iya": 3,
+    "lawas": 2,
+    "mga": 1
+  },
+  "habol": {
+    "higdaanan": 5,
+    "katre": 4,
+    "bugnaw": 3,
+    "lawas": 2,
+    "panapton": 1
+  },
+  "hilo": {
+    "bitin": 5,
+    "kagat": 4,
+    "hilo": 3,
+    "lason": 2,
+    "lubid": 1
+  },
+  "ilog": {
+    "tubig": 5,
+    "sapa": 4,
+    "tabok": 3,
+    "tulay": 2,
+    "bungto": 1
+  },
+  "irog": {
+    "tabok": 5,
+    "dapit": 4,
+    "paglihok": 3,
+    "ngadto": 2,
+    "kahadto": 1
+  },
+  "katok": {
+    "buang": 5,
+    "tawo": 4,
+    "hunahuna": 3,
+    "pulong": 2,
+    "buhat": 1
+  },
+  "kumot": {
+    "kamot": 5,
+    "tudlo": 4,
+    "lawas": 3,
+    "kusog": 2,
+    "pagsuntok": 1
+  },
+  "laban": {
+    "dapig": 5,
+    "suporta": 4,
+    "partido": 3,
+    "tawo": 2,
+    "iya": 1
+  },
+  "lagay": {
+    "lapok": 5,
+    "tuna": 4,
+    "lugar": 3,
+    "kahimtang": 2,
+    "sitwasyon": 1
+  },
+  "palit": {
+    "bakal": 5,
+    "butang": 4,
+    "merkado": 3,
+    "kwarta": 2,
+    "presyo": 1
+  },
+  "pagod": {
+    "sunog": 5,
+    "kahoy": 4,
+    "balay": 3,
+    "nasunog": 2,
+    "butang": 1
+  },
+  "pagong": {
+    "hayop": 5,
+    "tubig": 4,
+    "sapa": 3,
+    "bato": 2,
+    "gagmay": 1
+  },
+  "tapak": {
+    "sapot": 5,
+    "tahi": 4,
+    "panapton": 3,
+    "bayo": 2,
+    "butang": 1
+  },
+  "sili": {
+    "lalaki": 5,
+    "lawas": 4,
+    "parte": 3,
+    "tawo": 2,
+    "mga": 1
+  },
+  "usap": {
+    "pagkaon": 4,
+    "nganga": 3,
+    "baba": 2,
+    "tawo": 1
+  },
+  "utong": {
+    "ginhawa": 5,
+    "pagginhawa": 4,
+    "dughan": 3,
+    "hangin": 2,
+    "lawas": 1
+  },
+  "bangaw": {
+    "langit": 5,
+    "uran": 4,
+    "adlaw": 3,
+    "kolor": 2,
+    "kalangitan": 1
+  },
+  "bantot": {
+    "tunog": 5,
+    "kahulog": 4,
+    "butang": 3,
+    "kahoy": 2,
+    "nahulog": 1
+  },
+  "batasan": {
+    "tawo": 5,
+    "kultura": 4,
+    "batasan": 3,
+    "kaugalian": 2,
+    "kinabuhi": 1
+  },
+  "bangag": {
+    "lungag": 5,
+    "kahoy": 4,
+    "dingding": 3,
+    "tuna": 2,
+    "balay": 1
+  },
+  "balon": {
+    "pagkaon": 5,
+    "biyahe": 4,
+    "kwarta": 3,
+    "dala": 2,
+    "panaw": 1
+  },
+  "bago": {
+    "tanom": 5,
+    "bunga": 4,
+    "kahoy": 3,
+    "pagkaon": 2,
+    "klase": 1
+  },
+  "banyaga": {
+    "tawo": 5,
+    "lugar": 4,
+    "nasud": 3,
+    "langyaw": 2,
+    "mga": 1
+  },
+  "basbas": {
+    "kahoy": 5,
+    "kawayan": 4,
+    "putol": 3,
+    "pagputol": 2,
+    "bukid": 1
+  },
+  "bato": {
+    "tubig": 5,
+    "bukid": 4,
+    "balay": 3,
+    "dako": 2,
+    "gamay": 1
+  },
+  "bantay": {
+    "magbantay": 5,
+    "tawo": 4,
+    "balay": 3,
+    "gab-i": 2,
+    "seguridad": 1
+  },
+  "apoy": {
+    "kalayo": 5,
+    "sunog": 4,
+    "balay": 3,
+    "kusina": 2,
+    "tubig": 1
+  },
+  "putik": {
+    "tuna": 5,
+    "dalan": 4,
+    "ulan": 3,
+    "sapatos": 2,
+    "lapok": 1
+  },
+  "sala": {
+    "balay": 5,
+    "kwarto": 4,
+    "sulod": 3,
+    "gawas": 2,
+    "lugar": 1
+  },
+  "baga": {
+    "sugad": 5,
+    "daw": 4,
+    "tila": 3,
+    "hitabo": 2,
+    "ini": 1
+  },
+  "pako": {
+    "kahoy": 5,
+    "balay": 4,
+    "dingding": 3,
+    "martilyo": 2,
+    "butang": 1
+  },
+  "buhat": {
+    "trabaho": 5,
+    "tawo": 4,
+    "butang": 3,
+    "adlaw": 2,
+    "kinahanglan": 1
+  },
+  "suhol": {
+    "kwarta": 5,
+    "opisyal": 4,
+    "hatag": 3,
+    "trabaho": 2,
+    "gobyerno": 1
+  },
+  "labi": {
+    "sobra": 5,
+    "dugang": 4,
+    "importante": 3,
+    "hini": 2,
+    "ini": 1
+  },
+  "bali": {
+    "importante": 5,
+    "sugad": 4,
+    "kahimtang": 3,
+    "pulong": 2,
+    "buot": 1
+  },
+  "tulo": {
+    "tubig": 5,
+    "ulan": 4,
+    "gripo": 3,
+    "dugo": 2,
+    "luha": 1
+  },
+  "tulong": {
+    "kahoy": 5,
+    "pantuhog": 4,
+    "pagkaon": 3,
+    "kusina": 2,
+    "gamit": 1
+  },
+  "saka": {
+    "ngan": 5,
+    "liwat": 4,
+    "ngadto": 3,
+    "balay": 2,
+    "bukid": 1
+  },
+  "hiya": {
+    "iya": 8,
+    "niya": 7,
+    "ira": 6,
+    "nira": 5,
+    "mga": 4,
+    "nga": 3,
+    "amo": 2,
+    "ini": 1
+  },
+  "abag": {
+    "puyat": 5,
+    "gab-i": 4,
+    "pagpuyat": 3,
+    "tawo": 2,
+    "mata": 1
+  },
+  "abon": {
+    "manok": 5,
+    "itlog": 4,
+    "pag-limlim": 3,
+    "pugad": 2,
+    "kuting": 1
+  },
+  "abang": {
+    "hulatan": 5,
+    "tawo": 4,
+    "dalan": 3,
+    "pag-abot": 2,
+    "dapit": 1
+  },
+  "agaw": {
+    "pamilya": 5,
+    "patod": 4,
+    "tawo": 3,
+    "kabanay": 2,
+    "relative": 1
+  },
+  "alit": {
+    "paso": 5,
+    "kalayo": 4,
+    "mainit": 3,
+    "pako": 2,
+    "balat": 1
+  },
+  "amo": {
+    "oo": 5,
+    "sige": 4,
+    "sakto": 3,
+    "sugad": 2,
+    "puyde": 1
+  },
+  "anak": {
+    "subay": 5,
+    "langgam": 4,
+    "hamok": 3,
+    "balay": 2,
+    "busay": 1
+  },
+  "angat": {
+    "hungat": 5,
+    "subay": 4,
+    "pikit": 3,
+    "ngipon": 2,
+    "kagat": 1
+  },
+  "apat": {
+    "kwatro": 5,
+    "tawo": 4,
+    "butang": 3,
+    "numero": 2,
+    "kapilya": 1
+  },
+  "araw": {
+    "agi": 5,
+    "agianan": 4,
+    "dalan": 3,
+    "tawo": 2,
+    "agi-an": 1
+  },
+  "arax": {
+    "arat": 5,
+    "harat": 4,
+    "sili": 3,
+    "kani": 2,
+    "pagkaon": 1
+  },
+  "aya": {
+    "iroy": 5,
+    "nanay": 4,
+    "babaye": 3,
+    "balay": 2,
+    "bata": 1
+  },
+  "bahal": {
+    "tuba": 5,
+    "inumin": 4,
+    "tambal": 3,
+    "alak": 2,
+    "inom": 1
+  },
+  "bakas": {
+    "bulig": 5,
+    "amag": 4,
+    "sosyodad": 3,
+    "kauban": 2,
+    "trabaho": 1
+  },
+  "bala": {
+    "pulbura": 5,
+    "baril": 4,
+    "tirador": 3,
+    "pusil": 2,
+    "gubat": 1
+  },
+  "balaan": {
+    "pahit": 5,
+    "kagat": 4,
+    "bitin": 3,
+    "hayop": 2,
+    "sakit": 1
+  },
+  "balat": {
+    "baybayon": 5,
+    "dagat": 4,
+    "hunasan": 3,
+    "tubig": 2,
+    "balat": 1
+  },
+  "balit": {
+    "balik": 5,
+    "utro": 4,
+    "ulit": 3,
+    "bayad": 2,
+    "utang": 1
+  },
+  "bangon": {
+    "buhat": 5,
+    "higdaanan": 4,
+    "buntag": 3,
+    "mata": 2,
+    "tulog": 1
+  },
+  "bara": {
+    "kahoy": 5,
+    "pultahan": 4,
+    "trangka": 3,
+    "balay": 2,
+    "harang": 1
+  },
+  "basag": {
+    "humay": 5,
+    "tipasi": 4,
+    "palay": 3,
+    "sakahan": 2,
+    "bukid": 1
+  },
+  "basan": {
+    "mabasa": 5,
+    "tubig": 4,
+    "ulan": 3,
+    "sapatos": 2,
+    "lawas": 1
+  },
+  "bayon": {
+    "sako": 5,
+    "basket": 4,
+    "palengke": 3,
+    "pagkaon": 2,
+    "sukat": 1
+  },
+  "bili": {
+    "balor": 5,
+    "presyo": 4,
+    "bayad": 3,
+    "kwarta": 2,
+    "butang": 1
+  },
+  "bila": {
+    "ipagbila": 5,
+    "bilat": 4,
+    "iyot": 3,
+    "lawas": 2,
+    "parte": 1
+  },
+  "buang": {
+    "tawo": 5,
+    "gaba": 4,
+    "buang": 3,
+    "hunahuna": 2,
+    "buhat": 1
+  },
+  "bukay": {
+    "bukayo": 5,
+    "tam-is": 4,
+    "niyog": 3,
+    "pagkaon": 2,
+    "kendi": 1
+  },
+  "bulan": {
+    "langit": 5,
+    "gab-i": 4,
+    "suga": 3,
+    "buwan": 2,
+    "adlaw": 1
+  },
+  "dagan": {
+    "dalagan": 5,
+    "lakat": 4,
+    "paspas": 3,
+    "dapit": 2,
+    "sakayan": 1
+  },
+  "gabi": {
+    "gabi": 5,
+    "lutuon": 4,
+    "gabi-gabi": 3,
+    "tanom": 2,
+    "rootcrop": 1
+  },
+  "galang": {
+    "puthaw": 5,
+    "singsing": 4,
+    "baha": 3,
+    "kamot": 2,
+    "alahas": 1
+  },
+  "gira": {
+    "pondo": 5,
+    "puy-an": 4,
+    "istasyon": 3,
+    "puy-anan": 2,
+    "tawo": 1
+  },
+  "habag": {
+    "hangin": 5,
+    "bagyo": 4,
+    "dapit": 3,
+    "amihan": 2,
+    "dagat": 1
+  },
+  "hampak": {
+    "dula": 5,
+    "hampak": 4,
+    "uyag": 3,
+    "bata": 2,
+    "bola": 1
+  },
+  "iba": {
+    "kamias": 5,
+    "bunga": 4,
+    "aslam": 3,
+    "tanom": 2,
+    "pagkaon": 1
+  },
+  "idang": {
+    "kalaro": 5,
+    "sangkay": 4,
+    "kauban": 3,
+    "bata": 2,
+    "tawo": 1
+  },
+  "igang": {
+    "batu": 5,
+    "bukid": 4,
+    "gubat": 3,
+    "dako": 2,
+    "dalan": 1
+  },
+  "kita": {
+    "nakatandog": 5,
+    "nakakita": 4,
+    "mata": 3,
+    "tan-aw": 2,
+    "tawo": 1
+  },
+  "laboy": {
+    "lapok": 5,
+    "tuna": 4,
+    "ulan": 3,
+    "dalan": 2,
+    "sapatos": 1
+  },
+  "langat": {
+    "hulat": 5,
+    "urhi": 4,
+    "oras": 3,
+    "panahon": 2,
+    "tawo": 1
+  },
+  "libang": {
+    "dula": 5,
+    "uyag": 4,
+    "bata": 3,
+    "hampak": 2,
+    "oras": 1
+  },
+  "luto": {
+    "pagkaon": 5,
+    "kusina": 4,
+    "kalayo": 3,
+    "kan-on": 2,
+    "sabaw": 1
+  },
+  "mula": {
+    "hayop": 5,
+    "kargahan": 4,
+    "bukid": 3,
+    "kabayo": 2,
+    "dala": 1
+  },
+  "pait": {
+    "sabor": 5,
+    "ampalaya": 4,
+    "gamot": 3,
+    "pagkaon": 2,
+    "dila": 1
+  },
+  "sakat": {
+    "saka": 5,
+    "katkat": 4,
+    "bukid": 3,
+    "kahoy": 2,
+    "balay": 1
+  },
+  "sirang": {
+    "silaw": 5,
+    "adlaw": 4,
+    "mata": 3,
+    "suga": 2,
+    "kalayo": 1
+  },
+  "tambal": {
+    "gamot": 5,
+    "doktor": 4,
+    "sakit": 3,
+    "inomon": 2,
+    "ospital": 1
+  },
+  "tanom": {
+    "tanim": 5,
+    "kahoy": 4,
+    "bunga": 3,
+    "tuna": 2,
+    "bukid": 1
+  },
+  "uyag": {
+    "dula": 5,
+    "hampak": 4,
+    "bata": 3,
+    "kalipayan": 2,
+    "oras": 1
+  }
+}

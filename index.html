@@ -3,135 +3,372 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard sa Pagsusuri ng Tagalog at Waray</title>
+  <title>Agos-Waray: Dashboard sa Pagsusuri ng Tagalog at Waray</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  
+  <!-- Papa Parse CDN Library for reading CSV files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- Plotly.js CDN Library for Interactive Maps -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
+    <header class="header">
+      <div class="header-title">Agos-Waray (Dashboard sa Pagsusuri ng Wika)</div>
+      <div class="header-subtitle">Ang Gabay sa Organisadong Salin sa Wikang Waray | Halarom, Binalaybay, at Salindaloy</div>
+    </header>
 
-    <!-- HOME PAGE VIEW -->
-    <div id="home-view" class="page-view active">
-      <div class="home-hero-container">
-        <h1>ANO ANG WARAY AT TAGALOG?</h1>
-        <p>
-          Ang Waray ay isa sa mga pangunahing katutubong wika sa Pilipinas na sinasalita ng mga Waray sa rehiyon ng Silangang Visayas, partikular sa mga lalawigan ng Silangang Samar, Hilagang Samar, Samar, at sa malaking bahagi ng Leyte at Biliran. Kilala rin ito sa mga tawag na Winaray, Waray-Waray, at Samar-Leyte, at nagsisilbing pangunahing wikang ginagamit sa pang-araw-araw na komunikasyon ng mga mamamayan sa nasabing mga lugar. Bukod sa pagiging kasangkapan sa pakikipagtalastasan, mahalaga rin ang Waray sa pagpapanatili ng panitikan, mga awiting-bayan, alamat, kaugalian, at iba pang tradisyong nagpapakita ng mayamang kultura at pagkakakilanlan ng mga Waray (Komisyon sa Wikang Filipino [KWF], 2023; Montecalvo, 2021). Ayon din sa CCP Encyclopedia of Philippine Art, ang wikang Waray ay hindi lamang bahagi ng pagkakakilanlang etnolingguwistiko ng mga Waray kundi nagsisilbi ring sisidlan ng kanilang kasaysayan, paniniwala, at mga kaugaliang napapasa sa bawat salinlahi.
-        </p>
-        <p>
-          Samantala, ang Tagalog ay isa rin sa mga pangunahing katutubong wika sa Pilipinas na pangunahing ginagamit sa Kalakhang Maynila, CALABARZON, MIMAROPA, at mga karatig na lalawigan sa Luzon. Ito ang naging batayan ng Filipino, ang pambansang wika ng bansa, kaya malawak ang paggamit nito sa edukasyon, pamahalaan, mass media, at iba pang opisyal na larangan. Dahil sa lawak ng saklaw at gamit nito, nagsisilbi ang Tagalog bilang mahalagang wikang nag-uugnay sa iba't ibang pangkat etnolingguwistiko sa Pilipinas. Ayon sa CCP Encyclopedia of Philippine Art, ang Tagalog ay may mahalagang papel sa paghubog ng pambansang identidad at patuloy na umuunlad kasabay ng pagbabago ng lipunan at kultura ng mga Pilipino.
-        </p>
-        <button id="show-data-btn" class="btn-primary-custom">Ipakita ang Data (Dashboard)</button>
-      </div>
-    </div>
+    <main class="main-layout">
+      <!-- Left Panel: Sidebar Navigation -->
+      <section class="panel sidebar-panel">
+        <h3 class="panel-heading">Mga Kontrol</h3>
 
-    <!-- ACTUAL DATA / DASHBOARD PAGE VIEW -->
-    <div id="dashboard-view" class="page-view">
-      <header class="header">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-          <div>
-            <div class="header-title">Dashboard sa Pagsusuri ng Wika (Tagalog kumpara sa Waray)</div>
-            <div class="header-subtitle">Pagsusuri ng Corpus, Data Insights, at NLP Preprocessing</div>
-          </div>
-          <div>
-            <button id="home-btn" class="home-btn-header">← Bumalik sa Home</button>
+        <div class="control-group">
+          <label>Pumili ng Korpus</label>
+          <div id="corpus-selector-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
+            <button type="button" class="corpus-pill active" data-corpus="Tagalog" style="padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--accent); color: #fff; cursor: pointer; text-align: left; transition: all 0.2s;">
+              <div style="font-weight: 700; font-size: 13px;">Tagalog</div>
+              <div style="font-size: 10px; opacity: 0.85;" id="pill-tgl-count">Loading...</div>
+            </button>
+            <button type="button" class="corpus-pill" data-corpus="Waray" style="padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-main); cursor: pointer; text-align: left; transition: all 0.2s;">
+              <div style="font-weight: 700; font-size: 13px;">Waray</div>
+              <div style="font-size: 10px; opacity: 0.7;" id="pill-war-count">Loading...</div>
+            </button>
           </div>
         </div>
-      </header>
 
-      <!-- Language Info Card: always visible, updates whenever the corpus/language changes -->
-      <div class="lang-panel-wrap">
-        <section class="panel language-panel" id="language-panel">
-          <div class="panel-heading" style="margin-bottom: 16px;">Detalye ng Wika</div>
-          <div class="lang-panel-inner">
-            <div class="lang-fields">
-              <div class="lang-heading" id="lang-heading"></div>
-              <div class="lang-field"><span class="lang-label">Sangay</span><span class="lang-value" id="lang-branch"></span></div>
-              <div class="lang-field"><span class="lang-label">Sub-grupo</span><span class="lang-value" id="lang-subgroup"></span></div>
-              <div class="lang-field"><span class="lang-label">Rehiyon</span><span class="lang-value" id="lang-region"></span></div>
-              <div class="lang-field"><span class="lang-label">Populasyon</span><span class="lang-value" id="lang-population"></span></div>
+        <div class="control-group">
+          <label>Nabigasyon</label>
+          <div class="tabs-group" id="nav-group">
+            <button class="tab-btn active" data-section="home">Home / Halarom (Lalim)</button>
+            <button class="tab-btn" data-section="colloc">Seksyon 1: Binalaybay</button>
+            <button class="tab-btn" data-section="freq">Seksyon 2: Dalas ng Salita</button>
+            <button class="tab-btn" data-section="nlp">Seksyon 3: Salindaloy</button>
+            <button class="tab-btn" data-section="map">Seksyon 4: Mapa</button>
+          </div>
+        </div>
+
+        <!-- Ipinapakita lamang sa Seksyon 1 -->
+        <div class="control-group" id="search-container" style="display: none;">
+          <label for="target-word-select">Pumili ng Salita (Homograph)</label>
+          <select id="target-word-select"></select>
+        </div>
+
+        <div class="help-text" id="status-text">
+          Nilo-load ang mga CSV files mula sa Data folder...
+        </div>
+      </section>
+
+      <!-- Right Column -->
+      <div class="right-column">
+
+        <!-- Metric Cards Row -->
+        <section class="panel metric-panel">
+          <div class="metric-cards" id="metric-cards">
+            <div class="metric-card" data-metric="tokens">
+              <div class="metric-label">Kabuuang Token</div>
+              <div class="metric-value" id="metric-tokens">–</div>
             </div>
-            <div class="lang-callout">
-              <div class="callout-number" id="lang-households"></div>
-              <div class="callout-label">kabahayan</div>
+            <div class="metric-card" data-metric="types">
+              <div class="metric-label">Natatanging Salita (Types)</div>
+              <div class="metric-value" id="metric-types">–</div>
+            </div>
+            <div class="metric-card" data-metric="ttr">
+              <div class="metric-label">Type-Token Ratio</div>
+              <div class="metric-value" id="metric-ttr">–</div>
+            </div>
+            <div class="metric-card" data-metric="sentences">
+              <div class="metric-label">Pangungusap</div>
+              <div class="metric-value" id="metric-sentences">–</div>
             </div>
           </div>
-        </section>
-      </div>
-
-      <!-- Compact controls bar: corpus selector + status, always visible above everything -->
-      <div class="controls-bar-wrap">
-        <section class="panel controls-bar">
-          <div class="control-group corpus-control">
-            <label for="corpus-select">Pumili ng Corpus</label>
-            <select id="corpus-select">
-              <option value="Tagalog">Tagalog (tgl_wikipedia_2021)</option>
-              <option value="Waray">Waray (war_wikipedia_2021)</option>
-            </select>
-          </div>
-          <div class="help-text" id="status-text">
-            Nilo-load ang mga CSV files mula sa Data folder...
-          </div>
-        </section>
-      </div>
-
-      <!-- Main content: 3 panels, always visible side-by-side, no tab switching -->
-      <main class="main-layout">
-        <!-- Panel 1: Data Insight (frequency chart) -->
-        <section class="panel data-insight-panel">
-          <div class="panel-heading" id="freq-heading">Dalas ng Salita (Word Frequency &amp; Data Insight)</div>
-          <div class="subtext" id="freq-subtext">Mga salitang may mataas na frequency markers</div>
-          <div class="word-cloud-container" id="word-cloud"></div>
-          <div id="freq-insight"></div>
+          <div class="metric-detail" id="metric-detail" style="display:none;"></div>
         </section>
 
-        <!-- Right column: Co-occurrence Map (top) + NLP/Dialect Usage (bottom), stacked -->
-        <div class="right-column">
-          <section class="panel cooc-panel">
-            <div class="panel-heading" id="cooc-heading">Interactive Word Co-occurrence Map</div>
-            <div class="subtext" id="cooc-subtext">Paghahambing ng mga kasamang salita (collocates) ng parehong salita sa Tagalog at Waray.</div>
-
-            <div class="control-group" id="search-container">
-              <label for="target-word-select" id="search-label">Pumili ng Salita</label>
-              <select id="target-word-select">
-                <!-- Populated dynamically via script.js -->
-              </select>
-            </div>
-
-            <div id="cooc-graph"></div>
-            <div id="cooc-legend"></div>
+        <!-- Seksyon: Home -->
+        <div class="content-section active" id="section-home">
+          <section class="panel top-panel">
+            <div class="panel-heading">Dalas ng Salita at Halarom (Data Insights)</div>
+            <div class="subtext">Pagsusuri sa estruktura at dalas ng mga pangunahing marker.</div>
+            <div class="word-cloud-container" id="home-word-cloud"></div>
           </section>
+        </div>
 
-          <section class="panel nlp-panel">
-            <div class="panel-heading">Pagsusuri ng Gamit at Panlapi</div>
-            <div class="subtext">Pumili ng salita at ng tiyak na panlapi upang makita ang kahulugan at konteksto.</div>
+        <!-- Seksyon 1: Kolokasyon -->
+        <div class="content-section" id="section-colloc">
+          <section class="panel" style="padding: 18px 24px;">
+            <div class="panel-heading">Seksyon 1: Binalaybay (Linguistic Anomaly & Network Graph ng Kolokasyon)</div>
+            <div class="subtext">Pagsasaad at pagsuri ng kontekstwal na ugnayan sa pagitan ng mga salita sa korpus.</div>
 
-            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
-              <div class="control-group" style="flex: 1;">
-                <label for="nlp-word-select">Salita</label>
-                <select id="nlp-word-select">
-                  <!-- Populated dynamically via script.js -->
-                </select>
-              </div>
-              <div class="control-group" style="flex: 1;">
-                <label for="nlp-affix-select">Panlapi (Affix)</label>
-                <select id="nlp-affix-select">
-                  <option value="">Pumili muna ng salita</option>
-                </select>
+            <div class="freq-view-controls" style="margin-bottom: 16px;">
+              <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;"><strong>Daloy ng Pagsusuri sa Kolokasyon:</strong> 1. Seed Lexicon → 2. Context Window → 3. Voyant Network & Cirrus</div>
+              <div class="chart-type-toggle" style="display: inline-flex; background: var(--input-bg, #f5f5f5); padding: 4px; border-radius: 8px; border: 1px solid var(--border-color, #ddd);">
+                <button class="toggle-btn active" id="btn-colloc-web" style="padding: 6px 14px; font-size: 12px; font-weight: 600; border: none; background: #fff; cursor: pointer; border-radius: 6px; transition: all 0.2s ease;">🔗 Links (Network Graph)</button>
+                <button class="toggle-btn" id="btn-colloc-cirrus" style="padding: 6px 14px; font-size: 12px; font-weight: 600; border: none; background: transparent; cursor: pointer; border-radius: 6px; transition: all 0.2s ease;">☁️ Cirrus (Word Cloud)</button>
               </div>
             </div>
 
-            <div id="nlp-explanation-content">
-              <!-- Dynamic affix explanation rendered here -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 12px; color: var(--text-muted);">
+              <div>Target: <strong id="colloc-target-display" style="color: var(--primary);">basa</strong></div>
+              <div>Korpus: <span id="colloc-meta-info">Tagalog / Waray Corpus</span></div>
+            </div>
+
+            <!-- Network Graph Visual Container -->
+            <div id="colloc-network-container" class="network-graph-box" style="display: flex; justify-content: center; align-items: center; background: var(--input-bg); border-radius: var(--radius-sm); padding: 10px;">
+              <iframe style="width: 100%; max-width: 600px; height: 424px; border: none;" src="https://beta.voyant-tools.org/tool/Links/?query=nga&query=ng&query=sa&corpus=ed21914c9fec873f081bec11b5a7d358"></iframe>
             </div>
           </section>
         </div>
-      </main>
-    </div>
 
+        <!-- Seksyon 2: Dalas ng Salita -->
+        <div class="content-section" id="section-freq">
+          <section class="panel">
+            <div class="panel-heading">Seksyon 2: Talaan ng Relatibong Dalas at Paghahambing</div>
+            <div class="subtext">Ikumpara ang dalas at proporsyon ng mga salita mula sa aktwal na datasets at Voyant Tools.</div>
+
+            <!-- Relative Frequency Trend Panel with Stacked & Bar View Toggles -->
+            <div style="margin-top: 20px; border-top: 1px solid var(--border-color, #eee); padding-top: 20px;">
+              <div class="panel-heading" style="font-size: 15px;">Relative Frequency Trend (Voyant Tools)</div>
+              <div class="subtext">Graf ng paghahambing ng proporsyon at dalas ng mga pangunahing filler words.</div>
+              
+              <div class="freq-view-controls" style="margin-top: 12px; margin-bottom: 16px;">
+                <div class="chart-type-toggle" style="display: inline-flex; background: var(--input-bg, #f5f5f5); padding: 4px; border-radius: 8px; border: 1px solid var(--border-color, #ddd);">
+                  <button class="toggle-btn active" id="btn-trend-stacked" style="padding: 6px 14px; font-size: 12px; font-weight: 600; border: none; background: #fff; cursor: pointer; border-radius: 6px; transition: all 0.2s ease;">📊 Stacked View</button>
+                  <button class="toggle-btn" id="btn-trend-bar" style="padding: 6px 14px; font-size: 12px; font-weight: 600; border: none; background: transparent; cursor: pointer; border-radius: 6px; transition: all 0.2s ease;">📈 Bar / Column View</button>
+                </div>
+              </div>
+
+              <div id="relative-freq-container" style="display: flex; justify-content: center; margin-top: 12px;">
+                <iframe style="width: 100%; max-width: 600px; height: 424px; border: none;" src="https://beta.voyant-tools.org/tool/Trends/?query=nga&query=ng&query=sa&query=han&query=mga&chartType=stacked&corpus=ed21914c9fec873f081bec11b5a7d358"></iframe>
+              </div>
+            </div>
+
+            <!-- Search Controls & Chips -->
+            <div style="margin-top: 25px; border-top: 1px solid var(--border-color, #eee); padding-top: 20px;">
+              <div class="freq-controls">
+                <input type="text" id="freq-search-input" list="vocab-datalist" placeholder="Maghanap ng salita (hal. bahay, tubig, ako)...">
+                <datalist id="vocab-datalist"></datalist>
+                <button id="freq-add-btn" type="button">+ Idagdag</button>
+              </div>
+              <div class="help-text" id="freq-message" style="display:none;"></div>
+
+              <div class="freq-chips" id="freq-chips" style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;"></div>
+            </div>
+
+            <!-- Frequency Bar Chart -->
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-color, #eee); padding-top: 16px;">
+              <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Paghahambing ng Dalas</div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Asul = Tagalog, Ginto = Waray.</div>
+              <div id="freq-chart" class="freq-chart"></div>
+            </div>
+
+            <!-- Exact Proportion Table -->
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-color, #eee); padding-top: 16px;">
+              <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Talaan ng Relatibong Dalas</div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Eksaktong proporsyon at dominanteng korpus sa bawat salita batay sa aktwal na datos.</div>
+              <div id="freq-table"></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Seksyon 3: NLP -->
+        <div class="content-section" id="section-nlp">
+          <section class="panel">
+            <div class="panel-heading">Seksyon 3: Salindaloy (NLP Preprocessing &amp; Noise Reduction Pipeline)</div>
+            <div class="subtext">Mga hamong pang-lingguwistika sa mga panitikang teksto ng Tagalog at Waray at ang kaukulang pipeline.</div>
+
+            <div style="background: var(--input-bg, #f9f9f9); border: 1px solid var(--border-color, #eee); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 12px;">
+              <strong style="color: var(--primary);">Daloy ng Preprocessing:</strong> 1. Noise Diagnosis → 2. RegEx Normalization → 3. TagSA Stemming &amp; SentencePiece → 4. FastText LID → 5. Curated Clean Corpus
+            </div>
+
+            <!-- Card 1 -->
+            <div style="margin-top: 20px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">1. Orthographic &amp; Typographical Noise</h4>
+                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Ortograpiya at Baybay</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                <b>SULIRANIN SA KORPUS:</b> Pagkakaroon ng halo-halong lumang baybay, di-pamantayang karakter, at encoding artifacts na nagdudulot ng pagkakahati ng mga magkakatulad na leksikon.
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+                <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
+                  <div style="font-weight: 600; margin-bottom: 4px;">Lumang Baybay vs Moderno:</div>
+                  • "capuan" → "kapuan"<br>• "dorongawan" → "durungawan"<br>• "santoa" → "santwa"
+                </div>
+                <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
+                  <div style="font-weight: 600; margin-bottom: 4px;">NLP PIPELINE ACTION:</div>
+                  <b>Text Normalization &amp; RegEx Canonical Mapping</b><br>Pagpapatupad ng regular expressions (RegEx) para i-map ang lumang baybay patungong modernong ortograpiya ng Komisyon sa Wikang Filipino (KWF).
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="margin-top: 16px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">2. Morphological Noise &amp; Out-of-Vocabulary (OOV) Reduction</h4>
+                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Morpolohiya at Paglalapi</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                <b>SULIRANIN SA KORPUS:</b> Masalimuot na aglutinatibong paglalapi (prefixation, infixation, suffixation, reduplication) na nagdudulot ng High Out-of-Vocabulary (OOV) rate sa machine translation.
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+                <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
+                  <div style="font-weight: 600; margin-bottom: 4px;">Halimbawa sa Korpus:</div>
+                  • Ugat sulat → mansulat, sinulat, pansusulat<br>• Ugat basa → nanbabasa, binasa, pibasa
+                </div>
+                <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
+                  <div style="font-weight: 600; margin-bottom: 4px;">NLP PIPELINE ACTION:</div>
+                  <b>Rule-Based Stemming &amp; Subword Tokenization</b><br>Pagtanggal ng bound morphemes gamit ang Tagalog Stemming Algorithm at Byte-Pair Encoding (SentencePiece).
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="margin-top: 16px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">3. Code-Switching &amp; Sentence Length Noise</h4>
+                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Code-Switching at Haba</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                <b>SULIRANIN SA KORPUS:</b> Paghahalo ng mga wika sa mga kontemporaryong talata na nagdudulot ng spurious correlations at labis na mahahabang pangungusap (&gt;100 tokens).
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+                <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
+                  <div style="font-weight: 600; margin-bottom: 4px;">Trilinggual Code-Switching:</div>
+                  • "stay put kayo labat ditan... nag-text si friend ko"
+                </div>
+                <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
+                  <div style="font-weight: 600; margin-bottom: 4px;">NLP PIPELINE ACTION:</div>
+                  <b>Language Identification (LID) &amp; Heuristic Filtering</b><br>Paggamit ng pre-trained FastText LID classifier upang tukuyin ang monolingual vs mixed segments.
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulation Table -->
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-color, #eee); padding-top: 16px;">
+              <div class="panel-heading" style="font-size: 15px;">Pipeline Simulation Table (Walkthrough)</div>
+              <div class="subtext">Yugto-yugtong simulasyon kung paano nililinis ng pipeline ang teksto.</div>
+              <div style="overflow-x: auto; margin-top: 12px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                  <thead>
+                    <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--primary);">
+                      <th style="padding: 8px;">YUGTO (STAGE)</th>
+                      <th style="padding: 8px;">DATOS MULA SA KORPUS</th>
+                      <th style="padding: 8px;">TEKNIKAL NA AKSYON NG NLP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px dashed var(--border-color);">
+                      <td style="padding: 8px; font-weight: 600;">1. Raw Text</td>
+                      <td style="padding: 8px; font-family: monospace;">"akitan ko ed dorongawen so masanting mon eleng"</td>
+                      <td style="padding: 8px;">Pagtukoy sa lumang baybay at banyagang karakter (ñg).</td>
+                    </tr>
+                    <tr style="border-bottom: 1px dashed var(--border-color);">
+                      <td style="padding: 8px; font-weight: 600;">2. Normalized</td>
+                      <td style="padding: 8px; font-family: monospace;">"akitan ko ed durungawan so masanting mon ilong"</td>
+                      <td style="padding: 8px;">Pagsasaayos ng ortograpiya gamit ang regular expressions (RegEx).</td>
+                    </tr>
+                    <tr style="border-bottom: 1px dashed var(--border-color);">
+                      <td style="padding: 8px; font-weight: 600;">3. Stemmed / Tokenized</td>
+                      <td style="padding: 8px; font-family: monospace;">['akit', 'ko', 'ed', 'durungaw', '-an', 'so', 'masanting', 'mo', 'ilong']</td>
+                      <td style="padding: 8px;">Paghihiwalay sa panlapi at clitics gamit ang TagSA at SentencePiece.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px dashed var(--border-color);">
+                      <td style="padding: 8px; font-weight: 600;">4. Tagged Input</td>
+                      <td style="padding: 8px; font-family: monospace;">&lt;2tl&gt; akitan ko ed durungawan so masanting mon ilong</td>
+                      <td style="padding: 8px;">Pagkakabit ng prefix language tag upang itakda ang target language.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px dashed var(--border-color);">
+                      <td style="padding: 8px; font-weight: 600;">5. Model Output</td>
+                      <td style="padding: 8px; font-family: monospace;">"Makikita ko sa durungawan ang maganda mong ilong"</td>
+                      <td style="padding: 8px;">Pagsasalin sa pamamagitan ng Transformer self-attention layers.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </section>
+        </div>
+
+        <!-- Seksyon 4: Mapa -->
+        <div class="content-section" id="section-map">
+          <section class="panel">
+            <div class="panel-heading">Seksyon 4: Geograpikong Pamamahagi ng Wika (Waray at Tagalog)</div>
+            <div class="subtext">Geographical distribution batay sa mga rehiyon, lalawigan, at siyudad ng Silangang Bisaya at Katagalugan.</div>
+
+            <!-- Pipeline Flow Bar -->
+            <div style="background: var(--input-bg, #f9f9f9); border: 1px solid var(--border-color, #eee); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 12px;">
+              <strong style="color: var(--primary);">Daloy ng Demograpikong Pagma-mapa:</strong> 1. Geo Coordinates → 2. Density &amp; Population → 3. Regional Correlation → 4. Interactive ScatterGeo
+            </div>
+
+            <!-- Interactive Filters -->
+            <div style="margin-top: 16px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 14px;">
+              <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; font-size: 12px;">
+                <div>
+                  <span style="font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Saklaw ng Bisywalisasyon:</span>
+                  <div style="display: inline-flex; background: var(--border-color); padding: 3px; border-radius: 6px; gap: 4px;">
+                    <button type="button" class="map-scope-btn active" data-scope="ph" style="padding: 4px 10px; border: none; background: var(--accent); color: #fff; border-radius: 4px; cursor: pointer; font-weight: 600;">Buong Pilipinas (Archipelago)</button>
+                    <button type="button" class="map-scope-btn" data-scope="luzon" style="padding: 4px 10px; border: none; background: transparent; color: var(--text-main); border-radius: 4px; cursor: pointer;">Tumutok sa Rehiyon (Luzon &amp; Bisaya)</button>
+                  </div>
+                </div>
+                <div>
+                  <span style="font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">I-filter ang Wika:</span>
+                  <div style="display: inline-flex; background: var(--border-color); padding: 3px; border-radius: 6px; gap: 4px;">
+                    <button type="button" class="map-lang-btn active" data-lang="all" style="padding: 4px 10px; border: none; background: var(--accent); color: #fff; border-radius: 4px; cursor: pointer; font-weight: 600;">Lahat</button>
+                    <button type="button" class="map-lang-btn" data-lang="Waray" style="padding: 4px 10px; border: none; background: transparent; color: var(--text-main); border-radius: 4px; cursor: pointer;">Waray Lamang</button>
+                    <button type="button" class="map-lang-btn" data-lang="Tagalog" style="padding: 4px 10px; border: none; background: transparent; color: var(--text-main); border-radius: 4px; cursor: pointer;">Tagalog Lamang</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Plotly Map Container (Using Centered Wrapper Classes) -->
+            <div class="map-card-wrapper">
+              <div class="map-card-title">Geograpikong Pamamahagi ng mga Wika sa Pilipinas: Waray at Tagalog</div>
+              
+              <!-- Plotly Target Div -->
+              <div id="plotly-map-container"></div>
+
+              <div style="display: flex; justify-content: center; gap: 24px; margin-top: 14px; font-size: 12px; color: #fff;">
+                <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #f43f5e; border-radius: 50%;"></span> Waray (Silangang Bisaya)</span>
+                <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #38bdf8; border-radius: 50%;"></span> Tagalog (Katagalugan)</span>
+              </div>
+            </div>
+
+            <!-- Locations Chips Container -->
+            <div style="margin-top: 20px;">
+              <div style="font-weight: 600; font-size: 13px; margin-bottom: 8px;">★ Mga Nakatalang Sentro at Bayan sa Bisywalisasyon:</div>
+              <div id="map-cities-chips" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+            </div>
+
+            <!-- Regional Summary Cards Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;">
+              <div style="background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px;">
+                <div style="font-weight: 700; font-size: 13px; color: var(--primary); margin-bottom: 6px;">★ Wikang Waray (Silangang Bisaya: Samar, Leyte, Biliran)</div>
+                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+                  Ang wikang Waray ay kabilang sa pamilyang Austronesian. Pangunahing sinasalita sa rehiyon ng Silangang Bisaya, na may mga sentro sa Tacloban City, Catbalogan, at Borongan. Nagtataglay ito ng masaganang tradisyonal na panitikan at oral poetry (Binalaybay).
+                </div>
+              </div>
+              <div style="background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px;">
+                <div style="font-weight: 700; font-size: 13px; color: var(--primary); margin-bottom: 6px;">★ Wikang Tagalog (Katagalugan at Kalakhang Maynila)</div>
+                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+                  Ang Tagalog ang batayan ng pambansang wikang Filipino. Sinasalita sa buong Katagalugan, Gitnang Luzon, at Kalakhang Maynila. Naglalaman ito ng malawak na korpus na may masalimuot na sistema ng pokus sa pandiwa.
+                </div>
+              </div>
+            </div>
+
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js"></script>
 </body>
 </html>

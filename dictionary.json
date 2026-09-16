@@ -1,394 +1,394 @@
-{
-  "usa": {
-    "tagalog": "Mga Tagalog Collocates: hayop, gubat, usa, nakita, tumatakbo",
-    "waray": "Mga Waray Collocates: ka, nga, mga, la, ini, adlaw"
-  },
-  "wala": {
-    "tagalog": "Mga Tagalog Collocates: tao, pera, hindi, mayroon, kahit, talagang",
-    "waray": "Mga Waray Collocates: tuo, wala, dapit, kamot, bahin, ngadto"
-  },
-  "bukid": {
-    "tagalog": "Mga Tagalog Collocates: sakahan, palayan, magsasaka, lupa, bundok, probinsya",
-    "waray": "Mga Waray Collocates: dagko, taas, ngadto, kahoy, uma, bungtod"
-  },
-  "gamot": {
-    "tagalog": "Mga Tagalog Collocates: sakit, iniinom, reseta, doktor, tableta, herbal",
-    "waray": "Mga Waray Collocates: tanom, kahoy, gamot, gamotnon, dahon"
-  },
-  "mahusay": {
-    "tagalog": "Mga Tagalog Collocates: magaling, mahusay, trabaho, guro, paraan, paggawa",
-    "waray": "Mga Waray Collocates: maupay, tawo, babaye, lalaki, hitsura"
-  },
-  "daan": {
-    "tagalog": "Mga Tagalog Collocates: kalsada, daan, sasakyan, daanan, bahay, ruta",
-    "waray": "Mga Waray Collocates: daan, panahon, hadto, tuig, karaan"
-  },
-  "kalayo": {
-    "tagalog": "Mga Tagalog Collocates: malayo, lugar, distansya, bahay, bayan, pinanggalingan",
-    "waray": "Mga Waray Collocates: kalayo, sunog, balay, dako, tubig"
-  },
-  "aso": {
-    "tagalog": "Mga Tagalog Collocates: hayop, alaga, aso, bahay, tuta, kumakain",
-    "waray": "Mga Waray Collocates: aso, kalayo, sunog, kusina, balay"
-  },
-  "langgam": {
-    "tagalog": "Mga Tagalog Collocates: insekto, maliit, pugad, lupa, kagat",
-    "waray": "Mga Waray Collocates: katamsi, manok, kahoy, pakpak, mga"
-  },
-  "libog": {
-    "tagalog": "Mga Tagalog Collocates: katawan, pagnanasa, sekswal, damdamin, babae, lalaki",
-    "waray": "Mga Waray Collocates: huna-huna, problema, tawo, buot, isip"
-  },
-  "kamot": {
-    "tagalog": "Mga Tagalog Collocates: kamay, kanan, kaliwa, daliri, hugas, hawak",
-    "waray": "Mga Waray Collocates: tuo, wala, akon, iya, lawas, mga"
-  },
-  "habol": {
-    "tagalog": "Mga Tagalog Collocates: habol, kumot, takbo, sundan, bata, habulin",
-    "waray": "Mga Waray Collocates: higdaanan, katre, bugnaw, lawas, panapton"
-  },
-  "hilo": {
-    "tagalog": "Mga Tagalog Collocates: nahihilo, ulo, tiyan, pagsusuka, gamot, sakit",
-    "waray": "Mga Waray Collocates: bitin, kagat, hilo, lason, lubid"
-  },
-  "ilog": {
-    "tagalog": "Mga Tagalog Collocates: tubig, ilog, tawiran, tulay, pampang, dagat",
-    "waray": "Mga Waray Collocates: tubig, sapa, tabok, tulay, bungto"
-  },
-  "irog": {
-    "tagalog": "Mga Tagalog Collocates: minamahal, mahal, puso, sinta, kasintahan",
-    "waray": "Mga Waray Collocates: tabok, dapit, paglihok, ngadto, kahadto"
-  },
-  "katok": {
-    "tagalog": "Mga Tagalog Collocates: pinto, bahay, tunog, kumatok, boses",
-    "waray": "Mga Waray Collocates: buang, tawo, hunahuna, pulong, buhat"
-  },
-  "kumot": {
-    "tagalog": "Mga Tagalog Collocates: kama, tulog, gabi, bata, higaan, malamig",
-    "waray": "Mga Waray Collocates: kamot, tudlo, lawas, kusog, pagsuntok"
-  },
-  "laban": {
-    "tagalog": "Mga Tagalog Collocates: kontra, laban, kalaban, pakikipaglaban, panalo, talo",
-    "waray": "Mga Waray Collocates: dapig, suporta, partido, tawo, iya"
-  },
-  "lagay": {
-    "tagalog": "Mga Tagalog Collocates: ilagay, bagay, lugar, pera, posisyon, kalagayan",
-    "waray": "Mga Waray Collocates: lapok, tuna, lugar, kahimtang, sitwasyon"
-  },
-  "palit": {
-    "tagalog": "Mga Tagalog Collocates: sukli, pagbabago, palitan, pera, presyo, produkto",
-    "waray": "Mga Waray Collocates: bakal, butang, merkado, kwarta, presyo"
-  },
-  "pagod": {
-    "tagalog": "Mga Tagalog Collocates: trabaho, katawan, araw, pagod, pahinga, lakad",
-    "waray": "Mga Waray Collocates: sunog, kahoy, balay, nasunog, butang"
-  },
-  "pagong": {
-    "tagalog": "Mga Tagalog Collocates: hayop, shell, mabagal, tubig, dagat",
-    "waray": "Mga Waray Collocates: hayop, tubig, sapa, bato, gagmay"
-  },
-  "tapak": {
-    "tagalog": "Mga Tagalog Collocates: paa, lupa, sahig, yapak, hakbang, sapatos",
-    "waray": "Mga Waray Collocates: sapot, tahi, panapton, bayo, butang"
-  },
-  "sili": {
-    "tagalog": "Mga Tagalog Collocates: pagkain, maanghang, paminta, ulam, sawsawan",
-    "waray": "Mga Waray Collocates: lalaki, lawas, parte, tawo, mga"
-  },
-  "usap": {
-    "tagalog": "Mga Tagalog Collocates: salita, usapan, kausap, pag-uusap, sabi, kuwento",
-    "waray": "Mga Waray Collocates: pagkaon, nganga, baba, tawo"
-  },
-  "utong": {
-    "tagalog": "Mga Tagalog Collocates: dibdib, sanggol, suso, ina, gatas, katawan",
-    "waray": "Mga Waray Collocates: ginhawa, pagginhawa, dughan, hangin, lawas"
-  },
-  "bangaw": {
-    "tagalog": "Mga Tagalog Collocates: langaw, insekto, hayop, bahay, peste, lumilipad",
-    "waray": "Mga Waray Collocates: langit, uran, adlaw, kolor, kalangitan"
-  },
-  "bantot": {
-    "tagalog": "Mga Tagalog Collocates: amoy, mabaho, tubig, basura, kanal",
-    "waray": "Mga Waray Collocates: tunog, kahulog, butang, kahoy, nahulog"
-  },
-  "batasan": {
-    "tagalog": "Mga Tagalog Collocates: batas, lehislatura, kongreso, mambabatas, pamahalaan",
-    "waray": "Mga Waray Collocates: tawo, kultura, batasan, kaugalian, kinabuhi"
-  },
-  "bangag": {
-    "tagalog": "Mga Tagalog Collocates: lasing, droga, tao, bisyo, kalagayan",
-    "waray": "Mga Waray Collocates: lungag, kahoy, dingding, tuna, balay"
-  },
-  "balon": {
-    "tagalog": "Mga Tagalog Collocates: tubig, balon, malalim, hukay, poso",
-    "waray": "Mga Waray Collocates: pagkaon, biyahe, kwarta, dala, panaw"
-  },
-  "bago": {
-    "tagalog": "Mga Tagalog Collocates: bagong, bago, lumang, damit, bahay, taon",
-    "waray": "Mga Waray Collocates: tanom, bunga, kahoy, pagkaon, klase"
-  },
-  "banyaga": {
-    "tagalog": "Mga Tagalog Collocates: dayuhan, bansa, tao, kultura, wika, mamamayan",
-    "waray": "Mga Waray Collocates: tawo, lugar, nasud, langyaw, mga"
-  },
-  "basbas": {
-    "tagalog": "Mga Tagalog Collocates: basbas, pari, simbahan, pagpapala, biyaya",
-    "waray": "Mga Waray Collocates: kahoy, kawayan, putol, pagputol, bukid"
-  },
-  "bato": {
-    "tagalog": "Mga Tagalog Collocates: bato, kidney, lupa, daan",
-    "waray": "Mga Waray Collocates: tubig, bukid, balay, dako, gamay"
-  },
-  "bantay": {
-    "tagalog": "Mga Tagalog Collocates: bantay, guwardiya, bahay, seguridad, gabi",
-    "waray": "Mga Waray Collocates: magbantay, tawo, balay, gab-i, seguridad"
-  },
-  "apoy": {
-    "tagalog": "Mga Tagalog Collocates: apoy, sunog, kahoy, apoyan, kalan, init",
-    "waray": "Mga Waray Collocates: kalayo, sunog, balay, kusina, tubig"
-  },
-  "putik": {
-    "tagalog": "Mga Tagalog Collocates: lupa, putik, ulan, sapatos, kalsada, bukid",
-    "waray": "Mga Waray Collocates: tuna, dalan, ulan, sapatos, lapok"
-  },
-  "sala": {
-    "tagalog": "Mga Tagalog Collocates: kasalanan, sala, nagkasala, parusa, batas, simbahan",
-    "waray": "Mga Waray Collocates: balay, kwarto, sulod, gawas, lugar"
-  },
-  "baga": {
-    "tagalog": "Mga Tagalog Collocates: baga, apoy, ihaw, uling, kalan",
-    "waray": "Mga Waray Collocates: sugad, daw, tila, hitabo, ini"
-  },
-  "pako": {
-    "tagalog": "Mga Tagalog Collocates: martilyo, kahoy, dingding, bakal, bahay, pako",
-    "waray": "Mga Waray Collocates: kahoy, balay, dingding, martilyo, butang"
-  },
-  "buhat": {
-    "tagalog": "Mga Tagalog Collocates: buhat, buhatin, bagay, mabigat, kamay, iangat",
-    "waray": "Mga Waray Collocates: trabaho, tawo, butang, adlaw, kinahanglan"
-  },
-  "suhol": {
-    "tagalog": "Mga Tagalog Collocates: pera, opisyal, korapsyon, tanggap, bigay, politika",
-    "waray": "Mga Waray Collocates: kwarta, opisyal, hatag, trabaho, gobyerno"
-  },
-  "labi": {
-    "tagalog": "Mga Tagalog Collocates: labi, bibig, ngipin, mukha",
-    "waray": "Mga Waray Collocates: sobra, dugang, importante, hini, ini"
-  },
-  "bali": {
-    "tagalog": "Mga Tagalog Collocates: bali, basag, buto, braso, paa, salamin",
-    "waray": "Mga Waray Collocates: importante, sugad, kahimtang, pulong, buot"
-  },
-  "tulo": {
-    "tagalog": "Mga Tagalog Collocates: tubig, patak, gripo, ulan, dugo, luha",
-    "waray": "Mga Waray Collocates: tubig, ulan, gripo, dugo, luha"
-  },
-  "tulong": {
-    "tagalog": "Mga Tagalog Collocates: tulong, humingi, kailangan, tulungan, kapwa",
-    "waray": "Mga Waray Collocates: kahoy, pantuhog, pagkaon, kusina, gamit"
-  },
-  "saka": {
-    "tagalog": "Mga Tagalog Collocates: pagkatapos, saka, bahay, bukid, magsasaka",
-    "waray": "Mga Waray Collocates: ngan, liwat, ngadto, balay, bukid"
-  },
-  "hiya": {
-    "tagalog": "Mga Tagalog Collocates: kahihiyan, nakakahiya, nahihiya, ikinahihiya, hiya",
-    "waray": "Mga Waray Collocates: iya, niya, ira, nira, mga, nga, amo, ini"
-  },
-  "abag": {
-    "tagalog": "Mga Tagalog Collocates: tulong, saklolo, agapay, bayanihan, kasama",
-    "waray": "Mga Waray Collocates: puyat, gab-i, pagpuyat, tawo, mata"
-  },
-  "abon": {
-    "tagalog": "Mga Tagalog Collocates: pataba, lupa, halaman, pananim, bukid",
-    "waray": "Mga Waray Collocates: manok, itlog, pag-limlim, pugad, kuting"
-  },
-  "abang": {
-    "tagalog": "Mga Tagalog Collocates: renta, upa, bahay, bayad, buwanan",
-    "waray": "Mga Waray Collocates: hulatan, tawo, dalan, pag-abot, dapit"
-  },
-  "agaw": {
-    "tagalog": "Mga Tagalog Collocates: kumuha, agawin, gamit, magnanakaw, hablot",
-    "waray": "Mga Waray Collocates: pamilya, patod, tawo, kabanay, relative"
-  },
-  "alit": {
-    "tagalog": "Mga Tagalog Collocates: galit, inis, away, puso, damdamin",
-    "waray": "Mga Waray Collocates: paso, kalayo, mainit, pako, balat"
-  },
-  "amo": {
-    "tagalog": "Mga Tagalog Collocates: amo, boss, trabaho, sahod, utos",
-    "waray": "Mga Waray Collocates: oo, sige, sakto, sugad, puyde"
-  },
-  "anak": {
-    "tagalog": "Mga Tagalog Collocates: bata, anak, pamilya, ina, ama",
-    "waray": "Mga Waray Collocates: subay, langgam, hamok, balay, busay"
-  },
-  "angat": {
-    "tagalog": "Mga Tagalog Collocates: itaas, angat, pwesto, tagumpay",
-    "waray": "Mga Waray Collocates: hungat, subay, pikit, ngipon, kagat"
-  },
-  "apat": {
-    "tagalog": "Mga Tagalog Collocates: takip, apat, harang, takip-silim, dilim",
-    "waray": "Mga Waray Collocates: kwatro, tawo, butang, numero, kapilya"
-  },
-  "araw": {
-    "tagalog": "Mga Tagalog Collocates: araw, liwanag, umaga, init, langit",
-    "waray": "Mga Waray Collocates: agi, agianan, dalan, tawo, agi-an"
-  },
-  "arax": {
-    "tagalog": "Mga Tagalog Collocates: salita, arax, halo, usapan, daldal",
-    "waray": "Mga Waray Collocates: arat, harat, sili, kani, pagkaon"
-  },
-  "aya": {
-    "tagalog": "Mga Tagalog Collocates: aya, alaga, yaya, bata, tagapag-alaga",
-    "waray": "Mga Waray Collocates: iroy, nanay, babaye, balay, bata"
-  },
-  "bahal": {
-    "tagalog": "Mga Tagalog Collocates: matanda, bahal, luma, tuyo, imbento",
-    "waray": "Mga Waray Collocates: tuba, inumin, tambal, alak, inom"
-  },
-  "bakas": {
-    "tagalog": "Mga Tagalog Collocates: bakas, yapak, marka, daan",
-    "waray": "Mga Waray Collocates: bulig, amag, sosyodad, kauban, trabaho"
-  },
-  "bala": {
-    "tagalog": "Mga Tagalog Collocates: alala, bala, pangamba, pag-alala, isip",
-    "waray": "Mga Waray Collocates: pulbura, baril, tirador, pusil, gubat"
-  },
-  "balaan": {
-    "tagalog": "Mga Tagalog Collocates: banal, santo, simbahan, dasal, tao",
-    "waray": "Mga Waray Collocates: pahit, kagat, bitin, hayop, sakit"
-  },
-  "balat": {
-    "tagalog": "Mga Tagalog Collocates: balat, katawan, mukha, sugat, dermis",
-    "waray": "Mga Waray Collocates: baybayon, dagat, hunasan, tubig, balat"
-  },
-  "balit": {
-    "tagalog": "Mga Tagalog Collocates: balit, kuwento, balita, ulat, chismis",
-    "waray": "Mga Waray Collocates: balik, utro, ulit, bayad, utang"
-  },
-  "bangon": {
-    "tagalog": "Mga Tagalog Collocates: bangon, tayo, ibangon, ilog, pampang",
-    "waray": "Mga Waray Collocates: buhat, higdaanan, buntag, mata, tulog"
-  },
-  "bara": {
-    "tagalog": "Mga Tagalog Collocates: bara, barado, tubo, basura, kalsada",
-    "waray": "Mga Waray Collocates: kahoy, pultahan, trangka, balay, harang"
-  },
-  "basag": {
-    "tagalog": "Mga Tagalog Collocates: basag, salamin, pinggan, sira, basag-ulo",
-    "waray": "Mga Waray Collocates: humay, tipasi, palay, sakahan, bukid"
-  },
-  "basan": {
-    "tagalog": "Mga Tagalog Collocates: basan, basahan, punas, dumi, kaldero",
-    "waray": "Mga Waray Collocates: mabasa, tubig, ulan, sapatos, lawas"
-  },
-  "bayon": {
-    "tagalog": "Mga Tagalog Collocates: bayon, bayoneta, baril, sundalo, pakikipaglaban",
-    "waray": "Mga Waray Collocates: sako, basket, palengke, pagkaon, sukat"
-  },
-  "bili": {
-    "tagalog": "Mga Tagalog Collocates: bili, bumili, tindahan, pamilihan, pera",
-    "waray": "Mga Waray Collocates: balor, presyo, bayad, kwarta, butang"
-  },
-  "bila": {
-    "tagalog": "Mga Tagalog Collocates: bila, bilao, kakanin, pamaypay, gamit",
-    "waray": "Mga Waray Collocates: ipagbila, bilat, iyot, lawas, parte"
-  },
-  "buang": {
-    "tagalog": "Mga Tagalog Collocates: buang, gago, baliw, usapan, mura",
-    "waray": "Mga Waray Collocates: tawo, gaba, buang, hunahuna, buhat"
-  },
-  "bukay": {
-    "tagalog": "Mga Tagalog Collocates: bukay, puti, buhok, tanda, matanda",
-    "waray": "Mga Waray Collocates: bukayo, tam-is, niyog, pagkaon, kendi"
-  },
-  "bulan": {
-    "tagalog": "Mga Tagalog Collocates: buwan, langit, gabi, kalendaryo, taon",
-    "waray": "Mga Waray Collocates: langit, gab-i, suga, buwan, adlaw"
-  },
-  "dagan": {
-    "tagalog": "Mga Tagalog Collocates: dagan, daganan, mabigat, higa, patong",
-    "waray": "Mga Waray Collocates: dalagan, lakat, paspas, dapit, sakayan"
-  },
-  "gabi": {
-    "tagalog": "Mga Tagalog Collocates: gabi, gabi-gabi, dilim, tulog",
-    "waray": "Mga Waray Collocates: gabi, lutuon, gabi-gabi, tanom, rootcrop"
-  },
-  "galang": {
-    "tagalog": "Mga Tagalog Collocates: galang, paggalang, po at opo, matanda, respeto",
-    "waray": "Mga Waray Collocates: puthaw, singsing, baha, kamot, alahas"
-  },
-  "gira": {
-    "tagalog": "Mga Tagalog Collocates: giyera, laban, baril, sundalo, bansa",
-    "waray": "Mga Waray Collocates: pondo, puy-an, istasyon, puy-anan, tawo"
-  },
-  "habag": {
-    "tagalog": "Mga Tagalog Collocates: habag, awa, tulong, pagmamahal, damdamin",
-    "waray": "Mga Waray Collocates: hangin, bagyo, dapit, amihan, dagat"
-  },
-  "hampak": {
-    "tagalog": "Mga Tagalog Collocates: hampak, palo, hampasin, kahoy, sakit",
-    "waray": "Mga Waray Collocates: dula, hampak, uyag, bata, bola"
-  },
-  "iba": {
-    "tagalog": "Mga Tagalog Collocates: iba, ibang tao, iba pa, kakaiba, magkaiba",
-    "waray": "Mga Waray Collocates: kamias, bunga, aslam, tanom, pagkaon"
-  },
-  "idang": {
-    "tagalog": "Mga Tagalog Collocates: idang, aliw, tuwa, libangan, laro",
-    "waray": "Mga Waray Collocates: kalaro, sangkay, kauban, bata, tawo"
-  },
-  "igang": {
-    "tagalog": "Mga Tagalog Collocates: igang, init, pawis, panahon, mabilasa",
-    "waray": "Mga Waray Collocates: batu, bukid, gubat, dako, dalan"
-  },
-  "kita": {
-    "tagalog": "Mga Tagalog Collocates: kita, sahod, pera, negosyo, tauhan",
-    "waray": "Mga Waray Collocates: nakatandog, nakakita, mata, tan-aw, tawo"
-  },
-  "laboy": {
-    "tagalog": "Mga Tagalog Collocates: laboy, gala, pasyal, kaibigan",
-    "waray": "Mga Waray Collocates: lapok, tuna, ulan, dalan, sapatos"
-  },
-  "langat": {
-    "tagalog": "Mga Tagalog Collocates: langat, lagnat, sakit, gamot, init",
-    "waray": "Mga Waray Collocates: hulat, urhi, oras, panahon, tawo"
-  },
-  "libang": {
-    "tagalog": "Mga Tagalog Collocates: libang, palikuran, dumi, banyo, bawas",
-    "waray": "Mga Waray Collocates: dula, uyag, bata, hampak, oras"
-  },
-  "luto": {
-    "tagalog": "Mga Tagalog Collocates: luto, nagluluto, kalan, karinderya, ulam",
-    "waray": "Mga Waray Collocates: pagkaon, kusina, kalayo, kan-on, sabaw"
-  },
-  "mula": {
-    "tagalog": "Mga Tagalog Collocates: mula, simula, umumpisa, umpisa, pinagmulan",
-    "waray": "Mga Waray Collocates: hayop, kargahan, bukid, kabayo, dala"
-  },
-  "pait": {
-    "tagalog": "Mga Tagalog Collocates: pait, sakit, lungkot, kasawian, damdamin",
-    "waray": "Mga Waray Collocates: sabor, ampalaya, gamot, pagkaon, dila"
-  },
-  "sakat": {
-    "tagalog": "Mga Tagalog Collocates: sakat, sapat, sakto, sukat, tama",
-    "waray": "Mga Waray Collocates: saka, katkat, bukid, kahoy, balay"
-  },
-  "sirang": {
-    "tagalog": "Mga Tagalog Collocates: sirang, sira, sirang-sira, gamit, bahay",
-    "waray": "Mga Waray Collocates: silaw, adlaw, mata, suga, kalayo"
-  },
-  "tambal": {
-    "tagalog": "Mga Tagalog Collocates: tambal, tambalan, kapareha, kasama, pares",
-    "waray": "Mga Waray Collocates: gamot, doktor, sakit, inomon, ospital"
-  },
-  "tanom": {
-    "tagalog": "Mga Tagalog Collocates: tanom, tanaw, tanawin, bukid, malayo",
-    "waray": "Mga Waray Collocates: tanim, kahoy, bunga, tuna, bukid"
-  },
-  "uyag": {
-    "tagalog": "Mga Tagalog Collocates: uyag, uga, alog, lindol, galaw",
-    "waray": "Mga Waray Collocates: dula, hampak, bata, kalipayan, oras"
+  {
+    "usa": {
+      "tagalog": "Mga Tagalog Collocates: hayop, gubat, usa, nakita, tumatakbo",
+      "waray": "Mga Waray Collocates: ka, nga, mga, la, ini, adlaw"
+    },
+    "wala": {
+      "tagalog": "Mga Tagalog Collocates: tao, pera, hindi, mayroon, kahit, talagang",
+      "waray": "Mga Waray Collocates: tuo, wala, dapit, kamot, bahin, ngadto"
+    },
+    "bukid": {
+      "tagalog": "Mga Tagalog Collocates: sakahan, palayan, magsasaka, lupa, bundok, probinsya",
+      "waray": "Mga Waray Collocates: dagko, taas, ngadto, kahoy, uma, bungtod"
+    },
+    "gamot": {
+      "tagalog": "Mga Tagalog Collocates: sakit, iniinom, reseta, doktor, tableta, herbal",
+      "waray": "Mga Waray Collocates: tanom, kahoy, gamot, gamotnon, dahon"
+    },
+    "mahusay": {
+      "tagalog": "Mga Tagalog Collocates: magaling, mahusay, trabaho, guro, paraan, paggawa",
+      "waray": "Mga Waray Collocates: maupay, tawo, babaye, lalaki, hitsura"
+    },
+    "daan": {
+      "tagalog": "Mga Tagalog Collocates: kalsada, daan, sasakyan, daanan, bahay, ruta",
+      "waray": "Mga Waray Collocates: daan, panahon, hadto, tuig, karaan"
+    },
+    "kalayo": {
+      "tagalog": "Mga Tagalog Collocates: malayo, lugar, distansya, bahay, bayan, pinanggalingan",
+      "waray": "Mga Waray Collocates: kalayo, sunog, balay, dako, tubig"
+    },
+    "aso": {
+      "tagalog": "Mga Tagalog Collocates: hayop, alaga, aso, bahay, tuta, kumakain",
+      "waray": "Mga Waray Collocates: aso, kalayo, sunog, kusina, balay"
+    },
+    "langgam": {
+      "tagalog": "Mga Tagalog Collocates: insekto, maliit, pugad, lupa, kagat",
+      "waray": "Mga Waray Collocates: katamsi, manok, kahoy, pakpak, mga"
+    },
+    "libog": {
+      "tagalog": "Mga Tagalog Collocates: katawan, pagnanasa, sekswal, damdamin, babae, lalaki",
+      "waray": "Mga Waray Collocates: huna-huna, problema, tawo, buot, isip"
+    },
+    "kamot": {
+      "tagalog": "Mga Tagalog Collocates: kamay, kanan, kaliwa, daliri, hugas, hawak",
+      "waray": "Mga Waray Collocates: tuo, wala, akon, iya, lawas, mga"
+    },
+    "habol": {
+      "tagalog": "Mga Tagalog Collocates: habol, kumot, takbo, sundan, bata, habulin",
+      "waray": "Mga Waray Collocates: higdaanan, katre, bugnaw, lawas, panapton"
+    },
+    "hilo": {
+      "tagalog": "Mga Tagalog Collocates: nahihilo, ulo, tiyan, pagsusuka, gamot, sakit",
+      "waray": "Mga Waray Collocates: bitin, kagat, hilo, lason, lubid"
+    },
+    "ilog": {
+      "tagalog": "Mga Tagalog Collocates: tubig, ilog, tawiran, tulay, pampang, dagat",
+      "waray": "Mga Waray Collocates: tubig, sapa, tabok, tulay, bungto"
+    },
+    "irog": {
+      "tagalog": "Mga Tagalog Collocates: minamahal, mahal, puso, sinta, kasintahan",
+      "waray": "Mga Waray Collocates: tabok, dapit, paglihok, ngadto, kahadto"
+    },
+    "katok": {
+      "tagalog": "Mga Tagalog Collocates: pinto, bahay, tunog, kumatok, boses",
+      "waray": "Mga Waray Collocates: buang, tawo, hunahuna, pulong, buhat"
+    },
+    "kumot": {
+      "tagalog": "Mga Tagalog Collocates: kama, tulog, gabi, bata, higaan, malamig",
+      "waray": "Mga Waray Collocates: kamot, tudlo, lawas, kusog, pagsuntok"
+    },
+    "laban": {
+      "tagalog": "Mga Tagalog Collocates: kontra, laban, kalaban, pakikipaglaban, panalo, talo",
+      "waray": "Mga Waray Collocates: dapig, suporta, partido, tawo, iya"
+    },
+    "lagay": {
+      "tagalog": "Mga Tagalog Collocates: ilagay, bagay, lugar, pera, posisyon, kalagayan",
+      "waray": "Mga Waray Collocates: lapok, tuna, lugar, kahimtang, sitwasyon"
+    },
+    "palit": {
+      "tagalog": "Mga Tagalog Collocates: sukli, pagbabago, palitan, pera, presyo, produkto",
+      "waray": "Mga Waray Collocates: bakal, butang, merkado, kwarta, presyo"
+    },
+    "pagod": {
+      "tagalog": "Mga Tagalog Collocates: trabaho, katawan, araw, pagod, pahinga, lakad",
+      "waray": "Mga Waray Collocates: sunog, kahoy, balay, nasunog, butang"
+    },
+    "pagong": {
+      "tagalog": "Mga Tagalog Collocates: hayop, shell, mabagal, tubig, dagat",
+      "waray": "Mga Waray Collocates: hayop, tubig, sapa, bato, gagmay"
+    },
+    "tapak": {
+      "tagalog": "Mga Tagalog Collocates: paa, lupa, sahig, yapak, hakbang, sapatos",
+      "waray": "Mga Waray Collocates: sapot, tahi, panapton, bayo, butang"
+    },
+    "sili": {
+      "tagalog": "Mga Tagalog Collocates: pagkain, maanghang, paminta, ulam, sawsawan",
+      "waray": "Mga Waray Collocates: lalaki, lawas, parte, tawo, mga"
+    },
+    "usap": {
+      "tagalog": "Mga Tagalog Collocates: salita, usapan, kausap, pag-uusap, sabi, kuwento",
+      "waray": "Mga Waray Collocates: pagkaon, nganga, baba, tawo"
+    },
+    "utong": {
+      "tagalog": "Mga Tagalog Collocates: dibdib, sanggol, suso, ina, gatas, katawan",
+      "waray": "Mga Waray Collocates: ginhawa, pagginhawa, dughan, hangin, lawas"
+    },
+    "bangaw": {
+      "tagalog": "Mga Tagalog Collocates: langaw, insekto, hayop, bahay, peste, lumilipad",
+      "waray": "Mga Waray Collocates: langit, uran, adlaw, kolor, kalangitan"
+    },
+    "bantot": {
+      "tagalog": "Mga Tagalog Collocates: amoy, mabaho, tubig, basura, kanal",
+      "waray": "Mga Waray Collocates: tunog, kahulog, butang, kahoy, nahulog"
+    },
+    "batasan": {
+      "tagalog": "Mga Tagalog Collocates: batas, lehislatura, kongreso, mambabatas, pamahalaan",
+      "waray": "Mga Waray Collocates: tawo, kultura, batasan, kaugalian, kinabuhi"
+    },
+    "bangag": {
+      "tagalog": "Mga Tagalog Collocates: lasing, droga, tao, bisyo, kalagayan",
+      "waray": "Mga Waray Collocates: lungag, kahoy, dingding, tuna, balay"
+    },
+    "balon": {
+      "tagalog": "Mga Tagalog Collocates: tubig, balon, malalim, hukay, poso",
+      "waray": "Mga Waray Collocates: pagkaon, biyahe, kwarta, dala, panaw"
+    },
+    "bago": {
+      "tagalog": "Mga Tagalog Collocates: bagong, bago, lumang, damit, bahay, taon",
+      "waray": "Mga Waray Collocates: tanom, bunga, kahoy, pagkaon, klase"
+    },
+    "banyaga": {
+      "tagalog": "Mga Tagalog Collocates: dayuhan, bansa, tao, kultura, wika, mamamayan",
+      "waray": "Mga Waray Collocates: tawo, lugar, nasud, langyaw, mga"
+    },
+    "basbas": {
+      "tagalog": "Mga Tagalog Collocates: basbas, pari, simbahan, pagpapala, biyaya",
+      "waray": "Mga Waray Collocates: kahoy, kawayan, putol, pagputol, bukid"
+    },
+    "bato": {
+      "tagalog": "Mga Tagalog Collocates: bato, kidney, lupa, daan",
+      "waray": "Mga Waray Collocates: tubig, bukid, balay, dako, gamay"
+    },
+    "bantay": {
+      "tagalog": "Mga Tagalog Collocates: bantay, guwardiya, bahay, seguridad, gabi",
+      "waray": "Mga Waray Collocates: magbantay, tawo, balay, gab-i, seguridad"
+    },
+    "apoy": {
+      "tagalog": "Mga Tagalog Collocates: apoy, sunog, kahoy, apoyan, kalan, init",
+      "waray": "Mga Waray Collocates: kalayo, sunog, balay, kusina, tubig"
+    },
+    "putik": {
+      "tagalog": "Mga Tagalog Collocates: lupa, putik, ulan, sapatos, kalsada, bukid",
+      "waray": "Mga Waray Collocates: tuna, dalan, ulan, sapatos, lapok"
+    },
+    "sala": {
+      "tagalog": "Mga Tagalog Collocates: kasalanan, sala, nagkasala, parusa, batas, simbahan",
+      "waray": "Mga Waray Collocates: balay, kwarto, sulod, gawas, lugar"
+    },
+    "baga": {
+      "tagalog": "Mga Tagalog Collocates: baga, apoy, ihaw, uling, kalan",
+      "waray": "Mga Waray Collocates: sugad, daw, tila, hitabo, ini"
+    },
+    "pako": {
+      "tagalog": "Mga Tagalog Collocates: martilyo, kahoy, dingding, bakal, bahay, pako",
+      "waray": "Mga Waray Collocates: kahoy, balay, dingding, martilyo, butang"
+    },
+    "buhat": {
+      "tagalog": "Mga Tagalog Collocates: buhat, buhatin, bagay, mabigat, kamay, iangat",
+      "waray": "Mga Waray Collocates: trabaho, tawo, butang, adlaw, kinahanglan"
+    },
+    "suhol": {
+      "tagalog": "Mga Tagalog Collocates: pera, opisyal, korapsyon, tanggap, bigay, politika",
+      "waray": "Mga Waray Collocates: kwarta, opisyal, hatag, trabaho, gobyerno"
+    },
+    "labi": {
+      "tagalog": "Mga Tagalog Collocates: labi, bibig, ngipin, mukha",
+      "waray": "Mga Waray Collocates: sobra, dugang, importante, hini, ini"
+    },
+    "bali": {
+      "tagalog": "Mga Tagalog Collocates: bali, basag, buto, braso, paa, salamin",
+      "waray": "Mga Waray Collocates: importante, sugad, kahimtang, pulong, buot"
+    },
+    "tulo": {
+      "tagalog": "Mga Tagalog Collocates: tubig, patak, gripo, ulan, dugo, luha",
+      "waray": "Mga Waray Collocates: tubig, ulan, gripo, dugo, luha"
+    },
+    "tulong": {
+      "tagalog": "Mga Tagalog Collocates: tulong, humingi, kailangan, tulungan, kapwa",
+      "waray": "Mga Waray Collocates: kahoy, pantuhog, pagkaon, kusina, gamit"
+    },
+    "saka": {
+      "tagalog": "Mga Tagalog Collocates: pagkatapos, saka, bahay, bukid, magsasaka",
+      "waray": "Mga Waray Collocates: ngan, liwat, ngadto, balay, bukid"
+    },
+    "hiya": {
+      "tagalog": "Mga Tagalog Collocates: kahihiyan, nakakahiya, nahihiya, ikinahihiya, hiya",
+      "waray": "Mga Waray Collocates: iya, niya, ira, nira, mga, nga, amo, ini"
+    },
+    "abag": {
+      "tagalog": "Mga Tagalog Collocates: tulong, saklolo, agapay, bayanihan, kasama",
+      "waray": "Mga Waray Collocates: puyat, gab-i, pagpuyat, tawo, mata"
+    },
+    "abon": {
+      "tagalog": "Mga Tagalog Collocates: pataba, lupa, halaman, pananim, bukid",
+      "waray": "Mga Waray Collocates: manok, itlog, pag-limlim, pugad, kuting"
+    },
+    "abang": {
+      "tagalog": "Mga Tagalog Collocates: renta, upa, bahay, bayad, buwanan",
+      "waray": "Mga Waray Collocates: hulatan, tawo, dalan, pag-abot, dapit"
+    },
+    "agaw": {
+      "tagalog": "Mga Tagalog Collocates: kumuha, agawin, gamit, magnanakaw, hablot",
+      "waray": "Mga Waray Collocates: pamilya, patod, tawo, kabanay, relative"
+    },
+    "alit": {
+      "tagalog": "Mga Tagalog Collocates: galit, inis, away, puso, damdamin",
+      "waray": "Mga Waray Collocates: paso, kalayo, mainit, pako, balat"
+    },
+    "amo": {
+      "tagalog": "Mga Tagalog Collocates: amo, boss, trabaho, sahod, utos",
+      "waray": "Mga Waray Collocates: oo, sige, sakto, sugad, puyde"
+    },
+    "anak": {
+      "tagalog": "Mga Tagalog Collocates: bata, anak, pamilya, ina, ama",
+      "waray": "Mga Waray Collocates: subay, langgam, hamok, balay, busay"
+    },
+    "angat": {
+      "tagalog": "Mga Tagalog Collocates: itaas, angat, pwesto, tagumpay",
+      "waray": "Mga Waray Collocates: hungat, subay, pikit, ngipon, kagat"
+    },
+    "apat": {
+      "tagalog": "Mga Tagalog Collocates: takip, apat, harang, takip-silim, dilim",
+      "waray": "Mga Waray Collocates: kwatro, tawo, butang, numero, kapilya"
+    },
+    "araw": {
+      "tagalog": "Mga Tagalog Collocates: araw, liwanag, umaga, init, langit",
+      "waray": "Mga Waray Collocates: agi, agianan, dalan, tawo, agi-an"
+    },
+    "arax": {
+      "tagalog": "Mga Tagalog Collocates: salita, arax, halo, usapan, daldal",
+      "waray": "Mga Waray Collocates: arat, harat, sili, kani, pagkaon"
+    },
+    "aya": {
+      "tagalog": "Mga Tagalog Collocates: aya, alaga, yaya, bata, tagapag-alaga",
+      "waray": "Mga Waray Collocates: iroy, nanay, babaye, balay, bata"
+    },
+    "bahal": {
+      "tagalog": "Mga Tagalog Collocates: matanda, bahal, luma, tuyo, imbento",
+      "waray": "Mga Waray Collocates: tuba, inumin, tambal, alak, inom"
+    },
+    "bakas": {
+      "tagalog": "Mga Tagalog Collocates: bakas, yapak, marka, daan",
+      "waray": "Mga Waray Collocates: bulig, amag, sosyodad, kauban, trabaho"
+    },
+    "bala": {
+      "tagalog": "Mga Tagalog Collocates: alala, bala, pangamba, pag-alala, isip",
+      "waray": "Mga Waray Collocates: pulbura, baril, tirador, pusil, gubat"
+    },
+    "balaan": {
+      "tagalog": "Mga Tagalog Collocates: banal, santo, simbahan, dasal, tao",
+      "waray": "Mga Waray Collocates: pahit, kagat, bitin, hayop, sakit"
+    },
+    "balat": {
+      "tagalog": "Mga Tagalog Collocates: balat, katawan, mukha, sugat, dermis",
+      "waray": "Mga Waray Collocates: baybayon, dagat, hunasan, tubig, balat"
+    },
+    "balit": {
+      "tagalog": "Mga Tagalog Collocates: balit, kuwento, balita, ulat, chismis",
+      "waray": "Mga Waray Collocates: balik, utro, ulit, bayad, utang"
+    },
+    "bangon": {
+      "tagalog": "Mga Tagalog Collocates: bangon, tayo, ibangon, ilog, pampang",
+      "waray": "Mga Waray Collocates: buhat, higdaanan, buntag, mata, tulog"
+    },
+    "bara": {
+      "tagalog": "Mga Tagalog Collocates: bara, barado, tubo, basura, kalsada",
+      "waray": "Mga Waray Collocates: kahoy, pultahan, trangka, balay, harang"
+    },
+    "basag": {
+      "tagalog": "Mga Tagalog Collocates: basag, salamin, pinggan, sira, basag-ulo",
+      "waray": "Mga Waray Collocates: humay, tipasi, palay, sakahan, bukid"
+    },
+    "basan": {
+      "tagalog": "Mga Tagalog Collocates: basan, basahan, punas, dumi, kaldero",
+      "waray": "Mga Waray Collocates: mabasa, tubig, ulan, sapatos, lawas"
+    },
+    "bayon": {
+      "tagalog": "Mga Tagalog Collocates: bayon, bayoneta, baril, sundalo, pakikipaglaban",
+      "waray": "Mga Waray Collocates: sako, basket, palengke, pagkaon, sukat"
+    },
+    "bili": {
+      "tagalog": "Mga Tagalog Collocates: bili, bumili, tindahan, pamilihan, pera",
+      "waray": "Mga Waray Collocates: balor, presyo, bayad, kwarta, butang"
+    },
+    "bila": {
+      "tagalog": "Mga Tagalog Collocates: bila, bilao, kakanin, pamaypay, gamit",
+      "waray": "Mga Waray Collocates: ipagbila, bilat, iyot, lawas, parte"
+    },
+    "buang": {
+      "tagalog": "Mga Tagalog Collocates: buang, gago, baliw, usapan, mura",
+      "waray": "Mga Waray Collocates: tawo, gaba, buang, hunahuna, buhat"
+    },
+    "bukay": {
+      "tagalog": "Mga Tagalog Collocates: bukay, puti, buhok, tanda, matanda",
+      "waray": "Mga Waray Collocates: bukayo, tam-is, niyog, pagkaon, kendi"
+    },
+    "bulan": {
+      "tagalog": "Mga Tagalog Collocates: buwan, langit, gabi, kalendaryo, taon",
+      "waray": "Mga Waray Collocates: langit, gab-i, suga, buwan, adlaw"
+    },
+    "dagan": {
+      "tagalog": "Mga Tagalog Collocates: dagan, daganan, mabigat, higa, patong",
+      "waray": "Mga Waray Collocates: dalagan, lakat, paspas, dapit, sakayan"
+    },
+    "gabi": {
+      "tagalog": "Mga Tagalog Collocates: gabi, gabi-gabi, dilim, tulog",
+      "waray": "Mga Waray Collocates: gabi, lutuon, gabi-gabi, tanom, rootcrop"
+    },
+    "galang": {
+      "tagalog": "Mga Tagalog Collocates: galang, paggalang, po at opo, matanda, respeto",
+      "waray": "Mga Waray Collocates: puthaw, singsing, baha, kamot, alahas"
+    },
+    "gira": {
+      "tagalog": "Mga Tagalog Collocates: giyera, laban, baril, sundalo, bansa",
+      "waray": "Mga Waray Collocates: pondo, puy-an, istasyon, puy-anan, tawo"
+    },
+    "habag": {
+      "tagalog": "Mga Tagalog Collocates: habag, awa, tulong, pagmamahal, damdamin",
+      "waray": "Mga Waray Collocates: hangin, bagyo, dapit, amihan, dagat"
+    },
+    "hampak": {
+      "tagalog": "Mga Tagalog Collocates: hampak, palo, hampasin, kahoy, sakit",
+      "waray": "Mga Waray Collocates: dula, hampak, uyag, bata, bola"
+    },
+    "iba": {
+      "tagalog": "Mga Tagalog Collocates: iba, ibang tao, iba pa, kakaiba, magkaiba",
+      "waray": "Mga Waray Collocates: kamias, bunga, aslam, tanom, pagkaon"
+    },
+    "idang": {
+      "tagalog": "Mga Tagalog Collocates: idang, aliw, tuwa, libangan, laro",
+      "waray": "Mga Waray Collocates: kalaro, sangkay, kauban, bata, tawo"
+    },
+    "igang": {
+      "tagalog": "Mga Tagalog Collocates: igang, init, pawis, panahon, mabilasa",
+      "waray": "Mga Waray Collocates: batu, bukid, gubat, dako, dalan"
+    },
+    "kita": {
+      "tagalog": "Mga Tagalog Collocates: kita, sahod, pera, negosyo, tauhan",
+      "waray": "Mga Waray Collocates: nakatandog, nakakita, mata, tan-aw, tawo"
+    },
+    "laboy": {
+      "tagalog": "Mga Tagalog Collocates: laboy, gala, pasyal, kaibigan",
+      "waray": "Mga Waray Collocates: lapok, tuna, ulan, dalan, sapatos"
+    },
+    "langat": {
+      "tagalog": "Mga Tagalog Collocates: langat, lagnat, sakit, gamot, init",
+      "waray": "Mga Waray Collocates: hulat, urhi, oras, panahon, tawo"
+    },
+    "libang": {
+      "tagalog": "Mga Tagalog Collocates: libang, palikuran, dumi, banyo, bawas",
+      "waray": "Mga Waray Collocates: dula, uyag, bata, hampak, oras"
+    },
+    "luto": {
+      "tagalog": "Mga Tagalog Collocates: luto, nagluluto, kalan, karinderya, ulam",
+      "waray": "Mga Waray Collocates: pagkaon, kusina, kalayo, kan-on, sabaw"
+    },
+    "mula": {
+      "tagalog": "Mga Tagalog Collocates: mula, simula, umumpisa, umpisa, pinagmulan",
+      "waray": "Mga Waray Collocates: hayop, kargahan, bukid, kabayo, dala"
+    },
+    "pait": {
+      "tagalog": "Mga Tagalog Collocates: pait, sakit, lungkot, kasawian, damdamin",
+      "waray": "Mga Waray Collocates: sabor, ampalaya, gamot, pagkaon, dila"
+    },
+    "sakat": {
+      "tagalog": "Mga Tagalog Collocates: sakat, sapat, sakto, sukat, tama",
+      "waray": "Mga Waray Collocates: saka, katkat, bukid, kahoy, balay"
+    },
+    "sirang": {
+      "tagalog": "Mga Tagalog Collocates: sirang, sira, sirang-sira, gamit, bahay",
+      "waray": "Mga Waray Collocates: silaw, adlaw, mata, suga, kalayo"
+    },
+    "tambal": {
+      "tagalog": "Mga Tagalog Collocates: tambal, tambalan, kapareha, kasama, pares",
+      "waray": "Mga Waray Collocates: gamot, doktor, sakit, inomon, ospital"
+    },
+    "tanom": {
+      "tagalog": "Mga Tagalog Collocates: tanom, tanaw, tanawin, bukid, malayo",
+      "waray": "Mga Waray Collocates: tanim, kahoy, bunga, tuna, bukid"
+    },
+    "uyag": {
+      "tagalog": "Mga Tagalog Collocates: uyag, uga, alog, lindol, galaw",
+      "waray": "Mga Waray Collocates: dula, hampak, bata, kalipayan, oras"
+    }
   }
-}
