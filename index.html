@@ -176,33 +176,33 @@
           </section>
         </div>
 
-        <!-- Seksyon 3: NLP -->
+        <!-- Seksyon 3: NLP (Tailored to Waray) -->
         <div class="content-section" id="section-nlp">
           <section class="panel">
-            <div class="panel-heading">Seksyon 3: Salindaloy (NLP Preprocessing &amp; Noise Reduction Pipeline)</div>
-            <div class="subtext">Mga hamong pang-lingguwistika sa mga panitikang teksto ng Tagalog at Waray at ang kaukulang pipeline.</div>
+            <div class="panel-heading">Seksyon 3: Salindaloy (NLP Preprocessing &amp; Noise Reduction Pipeline para sa Waray)</div>
+            <div class="subtext">Mga hamong pang-lingguwistika at preprocessing pipeline sa mga tekstong pampanitikan at korpus ng Wikang Waray.</div>
 
             <div style="background: var(--input-bg, #f9f9f9); border: 1px solid var(--border-color, #eee); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 12px;">
-              <strong style="color: var(--primary);">Daloy ng Preprocessing:</strong> 1. Noise Diagnosis → 2. RegEx Normalization → 3. TagSA Stemming &amp; SentencePiece → 4. FastText LID → 5. Curated Clean Corpus
+              <strong style="color: var(--primary);">Daloy ng Preprocessing para sa Waray:</strong> 1. Orthographic &amp; Dialectal Variation Diagnosis → 2. Case Marker Normalization (an, han, ha) → 3. Waray Morpheme Stemming &amp; Subword Tokenization → 4. Code-Switching Filter → 5. Clean Waray Corpus
             </div>
 
             <!-- Card 1 -->
             <div style="margin-top: 20px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">1. Orthographic &amp; Typographical Noise</h4>
-                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Ortograpiya at Baybay</span>
+                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">1. Dialectal &amp; Orthographic Variations (H-Waray vs. S-Waray)</h4>
+                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Dayalekto at Baybay</span>
               </div>
               <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
-                <b>SULIRANIN SA KORPUS:</b> Pagkakaroon ng halo-halong lumang baybay, di-pamantayang karakter, at encoding artifacts na nagdudulot ng pagkakahati ng mga magkakatulad na leksikon.
+                <b>SULIRANIN SA KORPUS:</b> Ang wikang Waray ay nagtataglay ng iba't ibang diyalekto kung saan ang ilang morpema ay gumagamit ng titik 'h' (H-Waray sa Tacloban) o kaya naman ay 's' (S-Waray sa ibang bahagi ng Samar), pati na rin ang kawalan ng opisyal at pamantayang ortograpiya.
               </div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
                 <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
-                  <div style="font-weight: 600; margin-bottom: 4px;">Lumang Baybay vs Moderno:</div>
-                  • "capuan" → "kapuan"<br>• "dorongawan" → "durungawan"<br>• "santoa" → "santwa"
+                  <div style="font-weight: 600; margin-bottom: 4px;">Pagkakaiba sa Dayalekto:</div>
+                  • Case Marker: "ha" (Tacloban) vs "sa" (S-Waray)<br>• Paggamit ng iba't ibang baybay sa mga hiram na salita at katutubong leksikon.
                 </div>
                 <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
                   <div style="font-weight: 600; margin-bottom: 4px;">NLP PIPELINE ACTION:</div>
-                  <b>Text Normalization &amp; RegEx Canonical Mapping</b><br>Pagpapatupad ng regular expressions (RegEx) para i-map ang lumang baybay patungong modernong ortograpiya ng Komisyon sa Wikang Filipino (KWF).
+                  <b>RegEx-Based Dialectal Normalization</b><br>Paglikha ng normalization rules upang i-map ang mga varayti ng pananda sa iisang pamantayang token.
                 </div>
               </div>
             </div>
@@ -210,20 +210,20 @@
             <!-- Card 2 -->
             <div style="margin-top: 16px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">2. Morphological Noise &amp; Out-of-Vocabulary (OOV) Reduction</h4>
-                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Morpolohiya at Paglalapi</span>
+                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">2. Waray Morphological Complexity &amp; Clitic Pronouns</h4>
+                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Morpolohiya at Panlapi</span>
               </div>
               <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
-                <b>SULIRANIN SA KORPUS:</b> Masalimuot na aglutinatibong paglalapi (prefixation, infixation, suffixation, reduplication) na nagdudulot ng High Out-of-Vocabulary (OOV) rate sa machine translation.
+                <b>SULIRANIN SA KORPUS:</b> Masalimuot na sistema ng paglalapi (tulad ng *pan-* na nagiging *mam-* o *mang-*), kasama ang paggamit ng mga clitic pronouns at case markers (*an*, *han*, *hin*) na nagpapataas ng OOV (Out-of-Vocabulary) rate.
               </div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
                 <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
-                  <div style="font-weight: 600; margin-bottom: 4px;">Halimbawa sa Korpus:</div>
-                  • Ugat sulat → mansulat, sinulat, pansusulat<br>• Ugat basa → nanbabasa, binasa, pibasa
+                  <div style="font-weight: 600; margin-bottom: 4px;">Halimbawa sa Waray Corpus:</div>
+                  • pan- + batiq → pamatiq (pagbati)<br>• pan- + kaqun → pangaqun (pagkain)<br>• Paggamit ng *han* at *hin*.
                 </div>
                 <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
                   <div style="font-weight: 600; margin-bottom: 4px;">NLP PIPELINE ACTION:</div>
-                  <b>Rule-Based Stemming &amp; Subword Tokenization</b><br>Pagtanggal ng bound morphemes gamit ang Tagalog Stemming Algorithm at Byte-Pair Encoding (SentencePiece).
+                  <b>Morpheme Segmentation &amp; Stemming Rules</b><br>Pagbuo ng espesyalisadong stemming rules para sa Waray verb prefixes at paghihiwalay ng mga clitic pronouns.
                 </div>
               </div>
             </div>
@@ -231,66 +231,78 @@
             <!-- Card 3 -->
             <div style="margin-top: 16px; background: var(--input-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">3. Code-Switching &amp; Sentence Length Noise</h4>
-                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Code-Switching at Haba</span>
+                <h4 style="margin: 0; font-size: 15px; color: var(--primary);">3. Regional Code-Switching (Waray-Tagalog-English)</h4>
+                <span style="font-size: 11px; background: var(--accent-light, #fef3c7); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Code-Switching</span>
               </div>
               <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
-                <b>SULIRANIN SA KORPUS:</b> Paghahalo ng mga wika sa mga kontemporaryong talata na nagdudulot ng spurious correlations at labis na mahahabang pangungusap (&gt;100 tokens).
+                <b>SULIRANIN SA KORPUS:</b> Ang mga kontemporaryong tekstong Waray ay madalas nahahaluan ng Tagalog at Ingles, na nagiging sanhi ng ingay sa statistical language models.
               </div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
                 <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
-                  <div style="font-weight: 600; margin-bottom: 4px;">Trilinggual Code-Switching:</div>
-                  • "stay put kayo labat ditan... nag-text si friend ko"
+                  <div style="font-weight: 600; margin-bottom: 4px;">Halimbawa sa Kontemporaryong Teksto:</div>
+                  • "Malipayon ako adlaw nga nag-meeting kami didto sa Tacloban."
                 </div>
                 <div style="background: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px; font-size: 12px;">
                   <div style="font-weight: 600; margin-bottom: 4px;">NLP PIPELINE ACTION:</div>
-                  <b>Language Identification (LID) &amp; Heuristic Filtering</b><br>Paggamit ng pre-trained FastText LID classifier upang tukuyin ang monolingual vs mixed segments.
+                  <b>FastText Language Identification (LID)</b><br>Pag-filter at paghihiwalay ng mga segmeng Waray gamit ang n-gram language classifiers.
                 </div>
               </div>
             </div>
 
             <!-- Simulation Table -->
             <div style="margin-top: 24px; border-top: 1px solid var(--border-color, #eee); padding-top: 16px;">
-              <div class="panel-heading" style="font-size: 15px;">Pipeline Simulation Table (Walkthrough)</div>
-              <div class="subtext">Yugto-yugtong simulasyon kung paano nililinis ng pipeline ang teksto.</div>
+              <div class="panel-heading" style="font-size: 15px;">Pipeline Simulation Table para sa Waray (Walkthrough)</div>
+              <div class="subtext">Yugto-yugtong simulasyon kung paano nililinis at pinoproseso ng pipeline ang tekstong Waray.</div>
               <div style="overflow-x: auto; margin-top: 12px;">
                 <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
                   <thead>
                     <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--primary);">
                       <th style="padding: 8px;">YUGTO (STAGE)</th>
-                      <th style="padding: 8px;">DATOS MULA SA KORPUS</th>
+                      <th style="padding: 8px;">DATOS MULA SA WARAY CORPUS</th>
                       <th style="padding: 8px;">TEKNIKAL NA AKSYON NG NLP</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr style="border-bottom: 1px dashed var(--border-color);">
                       <td style="padding: 8px; font-weight: 600;">1. Raw Text</td>
-                      <td style="padding: 8px; font-family: monospace;">"akitan ko ed dorongawen so masanting mon eleng"</td>
-                      <td style="padding: 8px;">Pagtukoy sa lumang baybay at banyagang karakter (ñg).</td>
+                      <td style="padding: 8px; font-family: monospace;">"Gin-kita ko an maopay nga babaye ha ini nga balay."</td>
+                      <td style="padding: 8px;">Pagtukoy sa mga marker (*an*, *ha*) at panlaping *gin-*.</td>
                     </tr>
                     <tr style="border-bottom: 1px dashed var(--border-color);">
                       <td style="padding: 8px; font-weight: 600;">2. Normalized</td>
-                      <td style="padding: 8px; font-family: monospace;">"akitan ko ed durungawan so masanting mon ilong"</td>
-                      <td style="padding: 8px;">Pagsasaayos ng ortograpiya gamit ang regular expressions (RegEx).</td>
+                      <td style="padding: 8px; font-family: monospace;">"ginkita ko an maopay nga babaye ha ini nga balay"</td>
+                      <td style="padding: 8px;">Pag-normalize ng baybay at pag-alis ng typographical artifacts.</td>
                     </tr>
                     <tr style="border-bottom: 1px dashed var(--border-color);">
                       <td style="padding: 8px; font-weight: 600;">3. Stemmed / Tokenized</td>
-                      <td style="padding: 8px; font-family: monospace;">['akit', 'ko', 'ed', 'durungaw', '-an', 'so', 'masanting', 'mo', 'ilong']</td>
-                      <td style="padding: 8px;">Paghihiwalay sa panlapi at clitics gamit ang TagSA at SentencePiece.</td>
+                      <td style="padding: 8px; font-family: monospace;">['kita', 'ko', 'an', 'opay', 'nga', 'babaye', 'ha', 'ini', 'balay']</td>
+                      <td style="padding: 8px;">Pag-alis ng aspect markers (*gin-*) at paghihiwalay ng clitics.</td>
                     </tr>
                     <tr style="border-bottom: 1px dashed var(--border-color);">
                       <td style="padding: 8px; font-weight: 600;">4. Tagged Input</td>
-                      <td style="padding: 8px; font-family: monospace;">&lt;2tl&gt; akitan ko ed durungawan so masanting mon ilong</td>
-                      <td style="padding: 8px;">Pagkakabit ng prefix language tag upang itakda ang target language.</td>
+                      <td style="padding: 8px; font-family: monospace;">&lt;2war&gt; ginkita ko an maopay nga babaye ha ini nga balay</td>
+                      <td style="padding: 8px;">Pagkakabit ng Waray language tag para sa Neural Machine Translation.</td>
                     </tr>
                     <tr style="border-bottom: 1px dashed var(--border-color);">
                       <td style="padding: 8px; font-weight: 600;">5. Model Output</td>
-                      <td style="padding: 8px; font-family: monospace;">"Makikita ko sa durungawan ang maganda mong ilong"</td>
-                      <td style="padding: 8px;">Pagsasalin sa pamamagitan ng Transformer self-attention layers.</td>
+                      <td style="padding: 8px; font-family: monospace;">"Nakita ko ang magandang babae sa bahay na ito."</td>
+                      <td style="padding: 8px;">Tagumpay na pagsasalin patungong Tagalog/Filipino.</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
+            </div>
+
+            <!-- Sanggunian Card -->
+            <div style="margin-top: 24px; background: #0b1329; border-radius: 8px; padding: 20px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.5); color: #fff;">
+              <div style="font-size: 14px; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 8px; font-family: var(--font-heading);">Sanggunian</div>
+              <ul style="list-style-type: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 12px; line-height: 1.6; color: #e2e8f0;">
+                <li>Bonus, D. E. J., &amp; Bonus, J. (1995). <i>The Tagalog Stemming Algorithm (TAGSA)</i>. ResearchGate. <a href="https://www.researchgate.net/publication/228903101_The_Tagalog_Stemming_Algorithm_TagSA" target="_blank" style="color: #f6ad55; word-break: break-all; text-decoration: none;">https://www.researchgate.net/publication/228903101_The_Tagalog_Stemming_Algorithm_TagSA</a></li>
+                <li>Coronia, J. D. O. (n.d.). <i>Exploring clustering of Philippine languages in multilingual neural machine translation</i>. Animo Repository. <a href="https://animorepository.dlsu.edu.ph/etdm_softtech/4/" target="_blank" style="color: #f6ad55; word-break: break-all; text-decoration: none;">https://animorepository.dlsu.edu.ph/etdm_softtech/4/</a></li>
+                <li>Hussain, S. (2025). <i>A study on Natural language Processing: Bridging the gap between human communication and machine understanding</i>. ResearchGate. <a href="https://www.researchgate.net/publication/388954131_A_Study_on_Natural_Language_Processing_Bridging_the_Gap_Between_Human_Communication_and_Machine_Understanding" target="_blank" style="color: #f6ad55; word-break: break-all; text-decoration: none;">https://www.researchgate.net/publication/388954131_A_Study_on_Natural_Language_Processing_Bridging_the_Gap_Between_Human_Communication_and_Machine_Understanding</a></li>
+                <li>Montuya, H. (n.d.). <i>ORTOGRAPIYANG PAMBANSA</i>. Scribd. <a href="https://www.scribd.com/presentation/483977339/ORTOGRAPIYANG-PAMBANSA" target="_blank" style="color: #f6ad55; word-break: break-all; text-decoration: none;">https://www.scribd.com/presentation/483977339/ORTOGRAPIYANG-PAMBANSA</a></li>
+                <li>Madeja, Jovito &amp; Lourdes, Melanie &amp; Lara, A &amp; Abenis, Angelina &amp; Madeja, J. (2017). Waray Morphology. <i>American Journal of Sustainable Cities and Society</i>. Vol. 1. 22-43. <a href="https://www.researchgate.net/publication/383024753_Waray_Morphology" target="_blank" style="color: #f6ad55; word-break: break-all; text-decoration: none;">https://www.researchgate.net/publication/383024753_Waray_Morphology</a></li>
+              </ul>
             </div>
 
           </section>

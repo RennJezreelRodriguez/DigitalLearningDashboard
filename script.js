@@ -222,12 +222,20 @@ function switchSection(sectionName) {
 /* ===================== SEKSYON: HOME ===================== */
 
 function renderHome() {
+  const wordCloudEl = document.getElementById("home-word-cloud");
+  if (!wordCloudEl) return;
+
   const dataset = corpusData[state.corpus];
   if (!dataset || dataset.length === 0) return;
 
-  const wordCloudEl = document.getElementById("home-word-cloud");
-  const markerWords = ["nga", "ng", "sa", "han", "an", "na", "ha", "mga", "iti", "ug", "ang", "ka"];
-  
+  // Define language-specific markers to prevent cross-contamination
+  let markerWords = [];
+  if (state.corpus === "Tagalog") {
+    markerWords = ["ng", "sa", "ang", "na", "mga", "at", "ay", "si", "ni", "kay"];
+  } else {
+    markerWords = ["han", "an", "ha", "san", "nga", "ug", "iti", "hi", "ni", "ha", "ngaun"];
+  }
+
   const displayItems = markerWords.map(w => {
     const found = dataset.find(item => item.word === w);
     return found || { word: w, freq: 0 };
@@ -238,7 +246,7 @@ function renderHome() {
 
   wordCloudEl.innerHTML = `
     <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
-      <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">Paghahambing ng dalas ng mga pangunahing marker:</div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">Dalas ng mga pangunahing marker sa korpus ng <b>${state.corpus}</b>:</div>
       ${displayItems.map(item => {
         const percentage = Math.round((item.freq / maxFreq) * 100);
         return `
